@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title> foll </title>
+	
+	{% include 'foll/head_css.html' %}
+
+</head>
+
+
+<!-- Menu toggle script -->
+<script>
+$("#menu-toggle").click( function (e){
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+
+<body>
+	<!-- basic template for a navbar, anchor tags are important -->
+	<nav class = "navbar navbar-orange navbar-fixed-top"> 
+				<!-- <button id="menu-toggle">
+					<i class="navbar-icon fa fa-bars icon"></i>
+				</button> -->
+		<div class = "container-fluid">
+			<!-- logo -->
+
+			<div class = "navbar-header">
+				<a href = '#' class = "navbar-brand"> FOLL </a>
+			</div>
+
+			<!-- Menu Item -->
+			<div class = "collapse navbar-collapse" id = "mainNavBar">
+				<ul class = "nav navbar-nav">
+					<!-- active class gives the hover hightlight -->
+					<!-- Menu Not gonna work without the anchor tag -->
+					<li class = "active"><a href = "{% url 'index' %}"> Home </a> </li>
+					<li> <a href = "#"> About </a> </li>
+					<li> <a href = "#"> Help </a> </li>
+				</ul>
+				{% if request.user.is_authenticated %}
+				<ul class = "nav navbar-right logout_button">
+					<li><a href = {% url 'signout' %}> Logout </a></li>
+				</ul>
+				{% else %}
+					{% block login %} {% endblock %}
+				{% endif %}
+
+			</div>
+		</div>
+	</nav>
+
+<!-- 	<h2 id = "testing"> hihi </h2> -->
+
+{% block content %}
+{% endblock %}
+
+{% block form %}
+{% endblock %}
+
+
+{% block partys %}
+{% endblock %}
+
+{% block hihi %}
+{% endblock %}
+
+
+
+{% block food %}
+{% endblock %}
+
+
+{% block logout %}
+{% endblock %}
+</body>

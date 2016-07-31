@@ -1,0 +1,29 @@
+
+{% load crispy_forms_tags %}
+<!-- Modal -->
+
+
+
+
+  <div class="modal fade in" id="partyform_modal" role="partyform">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add a Party</h4>
+        </div>
+        <div class="modal-body">
+          {% crispy party_form party_form.helper %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+ 

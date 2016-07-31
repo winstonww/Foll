@@ -1,0 +1,65 @@
+{% extends 'foll/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block hihi %}
+<div class = "signup_wrapper">
+	<div class = "row">
+	<h1> Foll </h1>
+	<h3>  Choose the best food to bring to a potluck while keeping the cost within budget </h3>
+	</div>
+	<div class = "row">
+		<div class = "col-xl-push-2 col-lg-push-2 col-md-push-2 col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+			<div class = "signup_form_container">
+			{% crispy signup_form signup_form.helper %}
+			</div>
+		</div>
+		<div class = "hidden-sm-down">
+			<div class = "col-xl-push-2 col-lg-push-2 col-md-push-2 col-xl-6 col-lg-6 col-md-6 col-xs-0 canvas">
+		</div>
+		</div>
+	</div>
+
+		
+	<div class = "row" style = "padding-bottom: 5%;">
+		<div class = "col-md-push-2 col-md-4">
+			<h2> Share</h2>
+		<!-- 	<p> The moment when you went to a party with your favorite sushi burritos thinking everyone's gonna luv it and realized that you'd never been so wrong in your life....
+			</p> -->
+
+			<p>Feel free to share your ideas with friends using Foll ! Give Foll a list of items that you have in mind for a party and let others members in the party rate them. Don't worry if the item you wish to bring receives a low rating, because all submissions are anonymous! </p>
+		</div>
+		<div class = "col-md-push-2 col-md-4">
+			<h2> Optimize</h2>
+			<p> Foll collects the ratings of all the items proposed and renders a list of food that will maximize the value based on ratings under the price constraint specified. </p>
+			<p> If the item you proposed is on the top-rated list, foll will automatically remind you to bring it to the party so you won't forget!</p>
+		</div>
+		
+	</div>
+	<div class = "row">
+		<div class = "col-xl-push-3 col-lg-push-3 col-md-push-3 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12" style = 'margin : 0;'>
+			<div class = "login_form_container">
+			<h5 style = "float:left; display:inline-block; margin-right: 3px; "> Already a user? Login here: </h5>
+		
+			{% crispy user_login_form user_login_form.helper %}
+
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+
+		var overall_picture = '<div class = "overall_pic"><div class = "ball-container"><div class = "ball"></div><div class = "ball"></div><div class = "ball"></div><div class = "ball"> </div><div class = "ball"> </div></div><div class = "hand"></div></div>';
+		$(".canvas").append(overall_picture);
+	});
+</script>
+
+{% endblock %}
+
+
+
+

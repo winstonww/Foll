@@ -1,0 +1,245 @@
+{% extends 'foll/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+
+<div id = "wrapper">
+
+	{% include 'foll/sidebar.html' %}
+
+	
+	<div id = "page-content-wrapper">
+	<div class = "row welcome_message">
+			<h1> {{party.name}} </h1>
+	</div>
+	<div class = "row">
+		<div id="youmad"></div>
+	</div>
+	    <script>
+	      function initMap() {
+	     
+	        var mapDiv = document.getElementById('youmad');
+	        var map = new google.maps.Map(mapDiv, {
+	            center: {lat: {{party.location_lat}}, lng: {{party.location_lng}} },
+	            zoom: 15,
+	        });
+	      }
+	    </script>
+
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLVUE5kSGFo3Hx_pmMS2vnVGLdt0ihBfU&callback=initMap" async defer> </script>
+	<div class = "row">
+		<div class = "col-lg-4">
+		<div id = "friends_in_party_panel">
+			<div class="panel panel-default panel-table" style = "height:300px;">
+		 		<div class="panel-heading">
+		 			<div class = 'row'>
+			 			<div class = 'col-md-9'>
+			  			<h3 class="panel-title">Friends in Party</h3>
+			  			</div>
+			  			<div class = 'col-md-2'>
+			  			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#inivitefriendsform_modal">
+			 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			 			</button>
+			 			</div>
+			 			{% include 'foll/invitefriends_form.html' %}
+		 			</div>
+		  		</div>
+
+
+		  		<div class="panel-body">
+					<div class="container col-md-12 col-lg-12 col-sm-12 ">
+			 			<table class="table table-hover">
+			  				<tbody>
+			    				{% for users_with_party in users_in_this_party %}
+			     				<tr>
+			       					<td> {{users_with_party.user.username}} </td>
+			     				</tr>
+								{% endfor %}
+			    			</tbody>
+			  			</table>
+					</div>
+				</div> 
+			</div>	
+			</div>
+		</div>
+
+		<div class = "col-lg-7">
+		<div id = "friends_in_party_panel">
+			<div class="panel panel-default panel-table" style ="height: 300px;">
+		 		<div class="panel-heading">
+		  			<h3 class="panel-title">Info</h3>
+		  		</div>
+
+
+		  		<div class="panel-body" style = "padding-top:10px;">
+		  			<p><strong>Date and Time :</strong> {{party.date_time}}</p>
+		  			<p><strong>Location: </strong> {{party.location}} </p> 
+					<p><strong>Max. number of participants: </strong>{{party.max_size}}</p>
+					<p><strong>Budget: </strong>{{party.max_budget}}</p>
+					<p><strong>Description: </strong>{{party.desc}}</p>
+				</div> 
+			</div>	
+			</div>
+		</div>
+
+		
+	</div>
+
+	<div class = "row">
+		<div class = "col-lg-7">
+			<div class="panel panel-default panel-table" id = "all_food_panel">
+		 		<div class="panel-heading clearfix">
+		  			<h3 class="panel-title pull-left" style ="padding-top:5px;">List of all Food</h3>
+
+		  			<div class="btn-group pull-right add-and-edit-rating-button-group">
+			  			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#foodform_modal" >
+			 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			 			 Add
+			 			</button>
+			 			
+			 			{% include 'foll/foodform.html' %}
+
+			  			<button type="button" class="btn btn-sm" style='margin-left:0.25em;' id = "edit-rating" >
+			 			<span class="glyphicon glyphicon-asterisk" aria-hidden="true" ></span>
+			 			 Edit Rating
+			 			</button>
+		 			</div>
+
+		 			<div class="btn-group pull-right ok-cancel-group hidden">
+
+		 				<button type="button" class="btn btn-sm" id = "confirm-rating" >
+			 			<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			 			 OK
+			 			</button>
+			
+			  			<button type="button" class="btn btn-sm" style='margin-left:0.25em;' id = "cancel-rating" >
+			 			<span class="glyphicon glyphicon-remove" aria-hidden="true" ></span>
+			 			 Cancel
+			 			</button>
+
+		 			</div>
+
+		 			<script>
+		 			
+		 			$(document).ready(function() {
+
+		
+			 			$(".add-and-edit-rating-button-group").on("click", "#edit-rating", function() {
+
+
+							$('.add-and-edit-rating-button-group')
+		       		 		.addClass('hidden')
+
+		       		 		$('.ok-cancel-group')
+		       		 		.removeClass('hidden')
+
+		       		 		 $('.example').barrating('readonly',false);
+
+
+						});
+
+			 			$(".ok-cancel-group").on("click", "#cancel-rating", function() {
+							$('.add-and-edit-rating-button-group')
+		       		 		.removeClass('hidden');
+
+		       		 		$('.ok-cancel-group')
+		       		 		.addClass('hidden');
+
+		       		 		 $('.example').barrating('readonly',true);
+
+						});
+
+
+
+			 		});
+
+		 			</script>
+	 			</div>
+
+		  		<div class="panel-body">
+		  			<div class="container col-md-12 col-lg-12 col-sm-12 ">
+			 			<table class="table table-hover">
+			   				<thead>
+			     				<tr>
+			        				<th>Food</th>
+			        				<th>Price</th>
+			        				<th>Average Rating </th>
+			        				<th>Rating</th>
+
+			     				</tr>
+			   				</thead>
+
+
+			  				<tbody>
+			  					{% include 'foll/food_rating.html' %}
+			    			</tbody>
+			  			</table>
+			  		</div>
+				</div> 
+			</div>	
+		</div>
+
+		<div class = "col-lg-4">
+			<div class="panel panel-default" style = "height: 400px;">
+		 		<div class="panel-heading">
+	        	 	<div class= "row">
+	        	 		<div class = "col-xs-10">
+					    <h3 class="panel-title">Top Rated</h3>
+					    </div>
+					   <div class="col-xs-2"><span class="badge pull-right">{{best_food_list_length}}</span> </div>
+
+					</div>
+				</div>
+
+
+		  		<div class="panel-body">
+					<div class="container col-md-12 col-lg-12 col-sm-12 ">
+			 			<table class="table table-hover">
+			   				<thead>
+			     				<tr>
+			        				<th>Food</th>
+			        				<th>Price</th>
+			        				<th>Average Rating</th>
+			     				</tr>
+			   				</thead>
+
+
+			  				<tbody>
+
+			    				{% for food_info in best_food_list %}
+			     				<tr>
+			       					<td> {{food_info.name}} </td>
+			       					<td>{{food_info.price}}</td>
+			     					<td>{{food_info.avg_rating}}</td>
+			     				</tr>
+								{% endfor %}
+			    			</tbody>
+			  			</table>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+
+<script>
+
+$(document).ready(function() {
+
+	$("#menu-toggle").click( function (e){
+		    e.preventDefault();
+		    $("#wrapper").toggleClass("toggled");
+	});
+});
+
+</script>
+
+{% endblock %}
+
+<!-- To hide a class, don't use Jquery hide. Instead, add/remove the hidden class -->

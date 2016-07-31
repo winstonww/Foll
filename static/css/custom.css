@@ -1,0 +1,124 @@
+#testing {
+	color:green;
+}
+
+
+
+
+#wrapper {
+	/*webkit makes transition smooth*/
+	margin-top:10px;
+    padding-left: 0;
+    padding-top:10px;
+    -webkit-transition: all 0.5s ease; 
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    background : url("blue-polkadot-background.jpg");
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+* {
+    font-family: 'Overlock';
+ }
+
+
+
+#partyform label {
+	font-weight:100;
+	font-size : 1em;
+}
+
+
+.party_name{
+	height: 25px;
+}
+.help-block{
+	font-size : 1em;
+}
+
+.party_panel_body{
+	min-height: 300px !important;
+	
+}
+
+.welcome_message{
+	/*padding-top: 35px;*/
+	padding-left: 20px;
+	padding-bottom: 6px;
+	color : green;
+}
+
+.newsfeed_panel {
+	height:350px;
+	
+}
+
+.food_panel{
+	height: 350px;
+	
+}
+.invitation_panel{
+	
+	min-height:300px;
+	
+}
+
+
+#friends_in_party_panel{
+	padding-top:30px;
+	height:380px;
+
+}
+
+#all_food_panel{
+	min-height : 400px;	
+}
+
+#accept_button{
+	position: relative;
+	bottom: 5px;
+	left:3px;
+}
+
+#decline_button{
+	position: relative;
+	bottom: 5px;
+	left:3px;
+	border-radius: 1px;
+}
+
+ul.pagination li:first-child, ul.pagination li:last-child{display: none;}	
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+.pac-container {
+    background-color: #FFF;
+    z-index: 9999;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+
+#youmad{
+	width: 90%;
+	height: 400px;
+	margin-left: 1.5%;
+}
+.logout_button{
+	margin-bottom: 0 !important;
+	line-height : 2.205 !important;
+	color: white;
+}
+.logout_button a {
+	color: white;
+}
+.logout_button a:hover{
+	color : #e59400;
+}

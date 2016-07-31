@@ -1,0 +1,36 @@
+3 weeks familiarizing with django + problem framing
+
+6-15 
+Database construction 
+-Party, Food, UserInParty(Junction Table) FoodInParty
+set up templates, staticfiles, views and other basics in django
+views are set up using FBV, instead of CBV
+
+6-17 
+Started building html templates for home page and party details and signup page
+created forms to collect party, food info
+
+6-24 
+Set up Authentication System and login form and url redirects 
+start using crispy forms 
+forms in html are modularized
+
+6-30 
+Build Layout using bootstrap, write custom css for:
+	-navbar 
+	-sidebar
+	- panels in each page 
+	- tables to display info
+	- google font
+Further enhance apppearance of datetimefield in forms using django-datetime-widget
+
+
+7-5
+REST API export
+use ajax to process invitation request
+use rating node.ps widget
+
+error to be fixed
+a person can be added to a party multiple times NOT GOOD
+change price to decmial not integer
+rating

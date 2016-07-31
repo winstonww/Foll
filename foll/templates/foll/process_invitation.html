@@ -1,0 +1,82 @@
+
+
+<div id = "invitation_message">
+</div>
+ {% if invitation_num == 0 %}
+ 	<h5> You have no inivitations currently. </h5><br>
+ {% else %}
+ 	<ul class="list-group" id = "invitation_list">
+	{% for invitation in party_invitations %}
+		<li class="list-group-item">
+				{{invitation.invited_by.username}} invited you to join {{invitation.party.name}}
+				<button type="button" class="btn btn-default btn-sm pull-right" name = "{{invitation.invitation_id }}_decline_button" id = "decline_button">
+				  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Decline
+				</button>
+				<button type="button" class="btn btn-default btn-sm pull-right" name = "{{invitation.invitation_id }}_accept_button" id = "accept_button">
+				  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
+				</button>
+
+
+				<script>
+				$(document).ready(function() {
+				var $invitation_message = $("#invitation_message");
+
+				$("button[name='{{invitation.invitation_id }}_accept_button']").click(function() {	
+
+					var $li = $(this).closest('li');
+					var invitation_form = {}
+					$.ajax({
+						type : 'GET',
+						url : 'api/process_invitation/{{ invitation.invitation_id }}',
+						success: function(data){
+							$li.remove();
+							alert('it worked invite');
+
+						},
+						error: function(){
+							alert('you fucked up');
+							alert('api/process_invitation/{{ invitation.invitation_id }}');
+						},
+
+					});
+
+					$invitation_message.append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' aria-label='Close' id = 'invitation_message_close_button'><span aria-hidden='true'>&times;</span></button> You have accepted {{invitation.invited_by.username}}'s invitation</div>" );
+
+					alert("{{ invitation.invited_by.username }} is user!");
+
+				});
+
+				$("button[name = '{{invitation.invitation_id }}_decline_button']").click(function() {
+					alert("{{ invitation.invited_by.username }} is DECLINED!");
+					$("#testing_alert").html("{{ invitation.invitation_id }} is clicked!");
+
+				
+
+					$.ajax({
+							type : 'DELETE',
+							url : 'api/process_invitation/{{ invitation.invitation_id }}',
+							success: function(){
+								$li.remove();
+								alert('it worked deleted');
+
+							},
+							error: function(){
+								alert('you fucked up not deleted');
+								alert('api/process_invitation/{{ invitation.invitation_id }}');
+							},
+
+						});
+
+					$invitation_message.delegate('#invitation_message_close_button', 'click', function(){
+						var $div = $(this).closest('div');
+						$div.remove();
+					});
+				});
+				
+				});
+				</script>
+
+		 </li>
+	{% endfor %}
+	 </ul>
+{% endif %}

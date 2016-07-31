@@ -1,0 +1,43 @@
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCLVUE5kSGFo3Hx_pmMS2vnVGLdt0ihBfU"></script>
+<!-- This is to be included in party form -->
+
+	<div id = "div_id_location" class =  "form-group">
+		<label for = "party_location" class = "class-label requiredField">Location
+			<span class = "asteriskField"> </span>
+		</label>
+		<div class =" controls">
+			<input class="textinput textInput form-control" id="party_location" maxlength="50" name="location" title="Location" type="text" >
+
+			<div class = "my_map"></div>
+
+			<div class="geocomplete_details hidden">
+				
+				 <input name="lat" type="number" step = "any" value="">
+				 <input name="lng" type="number" step = "any" value="">
+		
+			</div>
+
+
+		</div>
+	</div>
+
+
+
+
+<script type="text/javascript">
+	$(function(){
+		$("#party_location").geocomplete({
+		  map: ".my_map",
+		  mapOptions: {
+		    zoom: 10
+		  },
+		  markerOptions: {
+		    draggable: true
+		  },
+		  details: ".geocomplete_details",
+		  types: ["geocode", "establishment"],
+		});
+	});
+
+
+</script>

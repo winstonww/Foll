@@ -1,0 +1,21 @@
+{% load crispy_forms_tags %}
+<!-- Modal -->
+  <div class="modal fade" id="inivitefriendsform_modal" role="foodform">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Invite a Friend to join the Party!</h4>
+        </div>
+        <div class="modal-body">
+         {% crispy invitation_form invitation_form.helper %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

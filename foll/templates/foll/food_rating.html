@@ -1,0 +1,109 @@
+<script>
+var ratings = {};
+</script>
+
+{% if partyfood_list_empty %}
+		<tr>
+			<td> No food </td>
+		</tr>
+	{% else %}
+	{% for food_info in partyfood_list %}
+		<tr>
+			<td> {{food_info.name}} </td>
+			<td>{{food_info.price}}</td>
+			<td> {{food_info.avg_rating}}</td>
+			<td>
+			<div class="br-wrapper br-theme-fontawesome-stars" id = "{{food_info.id}}_rating">
+				<select class="example" id = "{{food_info.id}}_rating_form" name = {{food_info.id}}">
+					<option value=""></option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+			
+				<span class="current-rating">
+					Current rating: <span class="value"></span>
+				</span>
+			</div>
+
+			<script>
+			$(function() {
+				$(".current-rating").addClass('hidden')
+
+				// ajax get
+
+		     	 $('#{{food_info.id}}_rating .example').barrating('show',{
+		       		 theme: 'fontawesome-stars',
+		       		 onSelect:  function(value, text){
+		       		 	if(!value){
+		       		 		$('#{{food_info.id}}_rating .example')
+		       		 		.barrating('clear');
+		       		 	}
+		       		 	else{
+		       		 		$('#{{food_info.id}}_rating .current-rating')
+		       		 		.removeClass('hidden')
+		       		 		.find('span')
+		       		 		.html(value);
+		       		 		
+		       		 		ratings['{{food_info.id}}'] = $("#{{food_info.id}}_rating_form").val();
+
+		       		 	}
+		       		 },
+		       		 onClear: function (value, text){
+		       		 		$('#{{food_info.id}}_rating .current-rating')
+		       		 		.addClass('hidden');
+		       		 },
+		       		 readonly: true,
+		      	});
+
+
+
+		  	 });
+			</script>
+			</td>
+		</tr>
+	{% endfor %}
+{% endif %}
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+ 	 $(".ok-cancel-group").on("click", "#confirm-rating", function() {
+			$('.add-and-edit-rating-button-group')
+		 	.removeClass('hidden');
+
+		 	$('.ok-cancel-group')
+		 	.addClass('hidden');
+
+		 	 $('.example').barrating('readonly',true);
+
+
+	
+			var summary = "";
+			var x;
+			for (x in ratings){
+				summary += ratings[x] + ' | ';
+			}
+			alert(summary);
+
+	 		$.ajax({
+	 		 	type: 'POST',
+	 		 	url: 'api/process_food_rating/',
+	 		 	data: ratings,
+	 		 	success: function(){
+	 		 		alert("updated!!");
+	 		 	}
+	 		});
+		 		 
+	});
+})
+
+
+</script>

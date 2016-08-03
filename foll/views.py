@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views import generic
 from django.views.generic import View
 from django.core.exceptions import ObjectDoesNotExist
-from datetime import datetime 
+from datetime import datetime
 from django.http import Http404
 
 # Serializer API
@@ -47,7 +47,7 @@ def index(request):
 		else:
 			return HttpResponse(party_form.errors)
 			print (party_form.errors)
-	else:		
+	else:
 		party_form = PartyForm()
 		invitation_form = PartyInvitationForm()
 
@@ -55,21 +55,25 @@ def index(request):
 	my_party = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 1)
 	for friend_party_pair in my_party:
 		party_info.append(friend_party_pair.party)
-	party_num = len(party_info) 
+	party_num = len(party_info)
 
 	party_invitations = []
 	party_invitations = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 0)
 	invitation_num = len(party_invitations)
-
-
+	food_newsfeed = Food.objects.none()
+	friends_in_party_newsfeed = UserInParty.objects.none()
 	# Update the news feed, take the top 5 most recent
 	for party in party_info:
-		food_newsfeed = Food.objects.all().filter(belong_to_party = party).order_by('-date_added')[:5]
-		friends_in_party_newsfeed = UserInParty.objects.all().filter(party = party, invitation_accepted = 1).order_by('-date_accepted')[:5]
+		party_food_newsfeed = Food.objects.all().filter(belong_to_party = party).order_by('-date_added')
+		food_newsfeed = food_newsfeed | party_food_newsfeed
+		party_friends_in_party_newsfeed = UserInParty.objects.all().filter(party = party, invitation_accepted = 1).order_by('-date_accepted')
+		friends_in_party_newsfeed = friends_in_party_newsfeed | party_friends_in_party_newsfeed
+	food_newsfeed = food_newsfeed[:5]
+	friends_in_party_newsfeed = friends_in_party_newsfeed[:5]
 	food_newsfeed_num = len(food_newsfeed)
-	members_newsfeed_num = len(friends_in_party_newsfeed) 
+	members_newsfeed_num = len(friends_in_party_newsfeed)
 
-	#update food to bring, code to be updated 
+	#update food to bring, code to be updated
 	all_top_rated_food = TopRatedFood.objects.all()
 	top_rated_food_ids = []
 	for topfood in all_top_rated_food:
@@ -79,7 +83,7 @@ def index(request):
 
 
 
-	context = {"party_form": party_form, "party_info": party_info, "party_invitations": party_invitations, 
+	context = {"party_form": party_form, "party_info": party_info, "party_invitations": party_invitations,
 	"invitation_num": invitation_num, "party_num": party_num, "food_newsfeed": food_newsfeed,
 	"friends_in_party_newsfeed": friends_in_party_newsfeed, "food_newsfeed_num": food_newsfeed_num,
 	"members_newsfeed_num": members_newsfeed_num , "food_to_bring": food_to_bring, "food_to_bring_length": len(food_to_bring)}
@@ -104,15 +108,15 @@ def party_details(request, party_id):
 		temp_party =  Party.objects.get(pk = party_id)
 		users_in_party = UserInParty.objects.get(user = request.user, party = temp_party )
 	except ObjectDoesNotExist:
-   		return redirect('index') 
+   		return redirect('index')
 
 	if (request.method == 'POST') and 'submit_food' in request.POST:
 		food_form = FoodForm(request.POST)
 		invitation_form = PartyInvitationForm()
 		food_form.helper.form_action = reverse('party_details', args= [party_id])
-		invitation_form.helper.form_action = reverse('party_details', args= [party_id]) 
+		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 		if food_form.is_valid():
-			new_food_info = food_form.save(commit = False) 
+			new_food_info = food_form.save(commit = False)
 			new_food_info.brought_by = request.user
 			new_food_info.belong_to_party = Party.objects.get(pk = party_id)
 			new_food_info.save()
@@ -126,7 +130,7 @@ def party_details(request, party_id):
 		invitation_form = PartyInvitationForm(request.POST)
 		food_form = FoodForm()
 		food_form.helper.form_action = reverse('party_details', args= [party_id])
-		invitation_form.helper.form_action = reverse('party_details', args= [party_id]) 
+		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 		if invitation_form.is_valid():
 			new_invitation = invitation_form.save(commit = False)
 			new_invitation.invited_by = request.user
@@ -136,12 +140,12 @@ def party_details(request, party_id):
 			new_invitation.save()
 		else:
 			return index(request)
-		
+
 	else:
 		food_form = FoodForm()
 		food_form.helper.form_action = reverse('party_details', args= [party_id]) # which view function to be redirected to
 		invitation_form = PartyInvitationForm()
-		invitation_form.helper.form_action = reverse('party_details', args= [party_id]) 
+		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 
 	this_party = Party.objects.get(pk = party_id)
 	partyfood_list = Food.objects.all().filter(belong_to_party = this_party)
@@ -154,7 +158,7 @@ def party_details(request, party_id):
 
 	partyfood_list_empty = True if len(partyfood_list) == 0 else False
 	users_in_this_party = UserInParty.objects.all().filter(party = temp_party)
-	
+
 
 
 	TopRatedFood.objects.all().filter(top_rated_food_id__in = food_list_ids).delete()
@@ -174,7 +178,7 @@ def party_details(request, party_id):
 	# for best_id in best_food_ids:
 	# 	TopRatedFood.objects.create(top_rated_food_id = best_id)
 	# best_food_list = Food.objects.filter(id__in = best_food_ids)
-	
+
 
 	# For sidebar notification only
 	party_invitations = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 0)
@@ -183,19 +187,19 @@ def party_details(request, party_id):
 	my_party = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 1)
 	for friend_party_pair in my_party:
 		party_info.append(friend_party_pair.party)
-	party_num = len(party_info) 
+	party_num = len(party_info)
 	# Update the news feed, take the top 5 most recent
 	for party in party_info:
 		food_newsfeed = Food.objects.all().filter(belong_to_party = party).order_by('-date_added')[:5]
 		friends_in_party_newsfeed = UserInParty.objects.all().filter(party = party, invitation_accepted = 1).order_by('-date_accepted')[:5]
 	food_newsfeed_num = len(food_newsfeed)
-	members_newsfeed_num = len(friends_in_party_newsfeed) 
+	members_newsfeed_num = len(friends_in_party_newsfeed)
 
 
-	context = {'food_form': food_form, 'party': this_party, 'partyfood_list' : partyfood_list, 
-	'party_food_list_num': len(partyfood_list), 'invitation_form': invitation_form, 
+	context = {'food_form': food_form, 'party': this_party, 'partyfood_list' : partyfood_list,
+	'party_food_list_num': len(partyfood_list), 'invitation_form': invitation_form,
 	"partyfood_list_empty": partyfood_list_empty,"users_in_this_party": users_in_this_party,
-	"best_food_list": best_food_list, "best_food_ids": best_food_ids,"invitation_num": invitation_num, 
+	"best_food_list": best_food_list, "best_food_ids": best_food_ids,"invitation_num": invitation_num,
 	"party_num": party_num, "food_newsfeed_num": food_newsfeed_num, "members_newsfeed_num": members_newsfeed_num,
 	"best_food_list_length": best_food_list_length }
 
@@ -216,11 +220,11 @@ def signup(request):
 	user_login_form = LoginForm()
 	status_flag = "initial"
 	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "status_flag" : status_flag}
-	
+
 	if (request.method == 'POST') and 'submit_signup' in request.POST:
 		signup_form = UserSignUpForm(request.POST)
 		if signup_form.is_valid():
-			user = signup_form.save(commit = True) 
+			user = signup_form.save(commit = True)
 			username = signup_form.cleaned_data['username']
 			password = signup_form.cleaned_data['password']
 			email = signup_form.cleaned_data['email']
@@ -322,7 +326,7 @@ def process_food_rating(request):
 		for key in request.POST:
 			try:
 				new_rating = FoodRating.objects.get(food__id = key, rated_by = request.user)
-				
+
 			except ObjectDoesNotExist:
 				new_rating = FoodRating()
 				new_rating.rated_by = request.user
@@ -339,9 +343,9 @@ def process_food_rating(request):
 
 
 
-# retreive data from form 
-#1. food_form.save(commit = False) 
-# 2. food_form.cleaned_data['rating'] 
+# retreive data from form
+#1. food_form.save(commit = False)
+# 2. food_form.cleaned_data['rating']
 
 # retrieve instances from model:
 # 1. retrieve instances with foreign key -- .objecst.filter()
@@ -350,8 +354,8 @@ def process_food_rating(request):
 # accesss instance attributes
 # party.name
 
-# url 
-# regular expression sends some arguments say link.id 
+# url
+# regular expression sends some arguments say link.id
 # view function should take in parameter (request, link.id)
 
 #request

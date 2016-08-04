@@ -218,7 +218,7 @@ def signup(request):
 
 	signup_form = UserSignUpForm()
 	user_login_form = LoginForm()
-	status_flag = False
+	no_user_flag = False
 	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "status_flag" : status_flag}
 
 	if (request.method == 'POST') and 'submit_signup' in request.POST:
@@ -242,7 +242,7 @@ def signup(request):
 			user = authenticate(username = username, password = password)
 			if user is not None:
 				login(request, user)
-				status_flag = "logged in"
+				no_user_flag = False
 				return redirect('index')
 			else:
 				no_user_flag = True

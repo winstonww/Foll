@@ -232,7 +232,13 @@ def signup(request):
 			user.set_password(password)
 			user.email = email
 			user.save()
-			return render(request, 'foll/signup.html', context)
+			user = authenticate(username = username, password = password)
+			if user is not None:
+				login(request, user)
+				no_user_flag = False
+				return redirect('index')
+			else:
+				no_user_flag = True
 
 	elif (request.method == 'POST') and 'submit_login' in request.POST:
 		user_login_form = LoginForm(request.POST)

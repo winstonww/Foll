@@ -42,9 +42,9 @@
 			<h5 style = "float:left; display:inline-block; margin-right: 3px; background-color: #d3d3d3; "> Already a user? Login here: </h5>
 		
 			{% crispy user_login_form user_login_form.helper %}
-			{% if no_user_flag == True %}
-			<p>Username/password does not exist. Try again." </p>
 			</div>
+			{% if no_user_flag == True %}
+				<p style = "colorL: red;">Username/password does not exist. Try again." </p>
 			{% endif %}
 		</div>
 	</div>

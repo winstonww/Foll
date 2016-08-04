@@ -1,0 +1,403 @@
+
+
+.signup_wrapper {
+  /*webkit makes transition smooth*/
+    margin-top:5%;
+    padding-left: 0;
+    padding-top:2%;
+    margin-left:3%;
+}
+
+
+.signup_wrapper h1  {
+  /*webkit makes transition smooth*/
+    text-align: center;
+    font-family: 'Indie Flower';
+    font-size: 4em;
+    color: orange;
+}
+
+.signup_wrapper h3  {
+  /*webkit makes transition smooth*/
+    text-align: center;
+    font-size: 1em;
+    color: black;
+}
+
+.signup_form_container{
+  margin-top: 20%;
+  background-color: rgba(200,200,200,0.5);
+  padding:10%;
+  border-radius: 4%;
+}
+
+#submit-id-submit_singup{
+  background-color: orange !important;
+}
+.login_form_container{
+  display: inline-block;
+  float: left;
+  background-color: rgba(255,255,255,0.3);
+  padding:2%;
+  border-radius: 4%;
+}
+
+.ball-container {
+  width:500px;
+  height: 50px;
+  bottom:0;
+  position: center relative;
+  margin: 0;
+
+
+}
+.overall_pic{
+  margin-top: 10%;
+  margin-left:10%;
+  margin-right:10%;
+  width: 500px;
+  height: 400px;
+  position: relative;
+}
+.hand{
+  width:450px;
+  height:275px;
+  content: url("nicetray.png");
+  bottom: 0;
+  position: relative;
+}
+
+.ball {
+  display:inline-block;
+  float: left;
+  width: 60px;
+  height: 60px;
+  padding-left: 20px;
+  border-radius: 50px;
+  margin-left: 20px;
+  }    
+    .ball:nth-child(1) {
+      background: #ff005d;
+      -webkit-animation: bounce 1s  ease-in-out;
+      -moz-animation: bounce 1s ease-in-out;
+      animation: bounce 1s ease-in-out;
+      -webkit-animation-delay: 1.0s; /* Chrome, Safari, Opera */
+      animation-delay: 1.0s;
+      opacity: 0;    
+      animation-fill-mode :forwards;
+    }
+
+    .ball:nth-child(2) {
+      background: #35ff99;
+      -webkit-animation: bounce 1s ease-in-out;
+      -moz-animation: bounce 1s ease-in-out;
+      animation: bounce 1s ease-in-out;
+      -webkit-animation-delay: 1.5s; /* Chrome, Safari, Opera */
+      animation-delay: 1.5s;
+      opacity: 0;
+      animation-fill-mode :forwards;
+    }
+
+    .ball:nth-child(3) {
+      background: #008597;
+      -webkit-animation: bounce 1s ease-in-out;
+      -moz-animation: bounce 1s ease-in-out;
+      animation: bounce 1s ease-in-out;
+      -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+      animation-delay: 2s;
+      opacity: 0;
+      animation-fill-mode :forwards;
+    }
+
+    .ball:nth-child(4) {
+      background: #ffcc00;
+      -webkit-animation: bounce 1s ease-in-out;
+      -moz-animation: bounce 1s ease-in-out;
+      animation: bounce 1s  ease-in-out;
+     -webkit-animation-delay: 2.5s; /* Chrome, Safari, Opera */
+      animation-delay: 2.5s;
+      opacity: 0;
+      animation-fill-mode :forwards;
+     }
+
+    .ball:nth-child(5) {
+      background: #2d3443;  
+      -webkit-animation: bounce 1s ease-in-out;
+      -moz-animation: bounce 1s ease-in-out;
+      animation: bounce 1s ease-in-out;
+      -webkit-animation-delay: 3s; /* Chrome, Safari, Opera */
+      animation-delay: 3s;
+      opacity: 0;
+      animation-fill-mode :forwards;
+    }
+
+    .ball:nth-child(6) {
+      background: #ff7c35;  
+      -webkit-animation: bounce 4.1s infinite ease-in-out;
+      -moz-animation: bounce 4.1s infinite ease-in-out;
+      animation: bounce 4.1s infinite ease-in-out;
+     }
+
+    .ball:nth-child(7) {
+      background: #4d407c;  
+      -webkit-animation: bounce 2s infinite ease-in-out;
+      -moz-animation: bounce 2s infinite ease-in-out;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+
+@-webkit-keyframes right {
+  0%   { -webkit-transform: translate(-15px);   }
+  50%  { -webkit-transform: translate(15px);    }
+  100% { -webkit-transform: translate(-15px);   }
+}
+
+@-webkit-keyframes left {
+  0%   { -webkit-transform: translate(15px);    }
+  50%  { -webkit-transform: translate(-15px);   }
+  100% { -webkit-transform: translate(15px);    }
+}
+
+
+@-moz-keyframes right {
+  0%   { -moz-transform: translate(-15px);   }
+  50%  { -moz-transform: translate(15px);    }
+  100% { -moz-transform: translate(-15px);   }
+}
+
+@-moz-keyframes left {
+  0%   { -moz-transform: translate(15px);    }
+  50%  { -moz-transform: translate(-15px);   }
+  100% { -moz-transform: translate(15px);    }
+}
+
+@keyframes right {
+  0%   { transform: translate(-15px);  }
+  50%  { transform: translate(15px);   }
+  100% { transform: translate(-15px);  }
+}
+
+@keyframes left {
+  0%   { transform: translate(15px);   }
+  50%  { transform: translate(-15px);  }
+  100% { transform: translate(15px);   }
+}
+
+@-webkit-keyframes bounce {
+   0% {
+  -webkit-transform:translateY(-1000%);
+    opacity: 0;
+  }
+  5% {
+    -webkit-transform:translateY(-1000%);
+    opacity: 0;
+  }
+  10%{
+    -webkit-transform:translateY(-1000%);
+    opacity: 0;
+  }
+  15% {
+    -webkit-transform:translateY(0);
+    padding-bottom: 5px;
+  }
+  30% {
+    -webkit-transform:translateY(-500%);
+  }
+  40% {
+    -webkit-transform:translateY(0%);
+    padding-bottom: 6px;
+  }
+  50% {
+    -webkit-transform:translateY(-300%);
+  }
+  70% {
+    -webkit-transform:translateY(0%);
+    padding-bottom: 7px;
+  }
+  80% {
+    -webkit-transform:translateY(-150%);
+  }
+  90% {
+    -webkit-transform:translateY(0%);
+    padding-bottom: 8px;
+  }
+  95% {
+    -webkit-transform:translateY(-100%);
+  }
+  97% {
+    -webkit-transform:translateY(0%);
+    padding-bottom: 9px;
+  }
+  99% {
+    -webkit-transform:translateY(-50%);
+  }
+  100% {
+    -webkit-transform:translateY(0);
+    padding-bottom: 9px;
+    opacity: 1;
+  }
+}
+
+/* Mozilla Firefox 15 below */
+@-moz-keyframes bounce {
+  0% {
+  -moz-transform:translateY(-1000px);
+    opacity: 0;
+  }
+  5% {
+    -moz-transform:translateY(-1000px);
+    opacity: 0;
+  }
+  15% {
+    -moz-transform:translateY(0);
+    padding-bottom: 5px;
+  }
+  30% {
+    -moz-transform:translateY(-500px);
+  }
+  40% {
+    -moz-transform:translateY(0px);
+    padding-bottom: 6px;
+  }
+  50% {
+    -moz-transform:translateY(-300px);
+  }
+  70% {
+    -moz-transform:translateY(0px);
+    padding-bottom: 7px;
+  }
+  80% {
+    -moz-transform:translateY(-150px);
+  }
+  90% {
+    -moz-transform:translateY(0%);
+    padding-bottom: 8px;
+  }
+  95% {
+    -moz-transform:translateY(-100px);
+  }
+  97% {
+    -moz-transform:translateY(0%);
+    padding-bottom: 9px;
+  }
+  99% {
+    -moz-transform:translateY(-50px);
+  }
+  100% {
+    -moz-transform:translateY(0);
+    padding-bottom: 9px;
+    opacity: 1;
+  }
+}
+
+/* Opera 12.0 */
+@-o-keyframes bounce {
+  0% {
+  -o-transform:translateY(-0px);
+    opacity: 0.5;
+  }
+  2.5%{
+     -o-transform:translateY(-20px);
+      opacity: 0;
+  }
+  5% {
+    -o-transform:translateY(-40px);
+    opacity: 0;
+  }
+  10%{
+    -o-transform:translateY(-100px);
+    opacity: 0;
+  }
+  15% {
+    -o-transform:translateY(0);
+    padding-bottom: 5px;
+  }
+  30% {
+    -o-transform:translateY(-50px);
+  }
+  40% {
+    -o-transform:translateY(0%);
+    padding-bottom: 6px;
+  }
+  50% {
+    -o-transform:translateY(-30px);
+  }
+  70% {
+    -o-transform:translateY(0%);
+    padding-bottom: 7px;
+  }
+  80% {
+    -o-transform:translateY(-15px);
+  }
+  90% {
+    -o-transform:translateY(0%);
+    padding-bottom: 8px;
+  }
+  95% {
+    -o-transform:translateY(-10px);
+  }
+  97% {
+    -o-transform:translateY(0%);
+    padding-bottom: 9px;
+  }
+  99% {
+    -o-transform:translateY(-5px);
+  }
+  100% {
+    -o-transform:translateY(0);
+    padding-bottom: 9px;
+    opacity: 1;
+  }
+}
+
+/* W3, Opera 12+, Firefox 16+ */
+@keyframes bounce {
+  0% {
+  transform:translateY(-100px);
+    opacity: 0;
+  }
+  5% {
+    transform:translateY(-100px);
+    opacity: 0;
+  }
+  15% {
+    transform:translateY(0);
+    padding-bottom: 5px;
+  }
+  30% {
+    transform:translateY(-50px);
+  }
+  40% {
+    transform:translateY(0%);
+    padding-bottom: 6px;
+  }
+  50% {
+    transform:translateY(-30px);
+  }
+  70% {
+    transform:translateY(0%);
+    padding-bottom: 7px;
+  }
+  80% {
+    transform:translateY(-15px);
+  }
+  90% {
+    transform:translateY(0%);
+    padding-bottom: 8px;
+  }
+  95% {
+    transform:translateY(-7px);
+  }
+  97% {
+    transform:translateY(0%);
+    padding-bottom: 9px;
+  }
+  99% {
+    transform:translateY(-3px);
+  }
+  100% {
+    transform:translateY(0);
+    padding-bottom: 9px;
+    opacity: 1;
+  }
+}

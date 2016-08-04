@@ -218,7 +218,7 @@ def signup(request):
 
 	signup_form = UserSignUpForm()
 	user_login_form = LoginForm()
-	status_flag = "initial"
+	status_flag = False
 	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "status_flag" : status_flag}
 
 	if (request.method == 'POST') and 'submit_signup' in request.POST:
@@ -245,9 +245,9 @@ def signup(request):
 				status_flag = "logged in"
 				return redirect('index')
 			else:
-				status_flag = "No Such User"
+				no_user_flag = True
 
-	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "status_flag" : status_flag}
+	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "no_user_flag" : no_user_flag}
 	return render(request, 'foll/signup.html', context)
 
 

@@ -219,8 +219,6 @@ def signup(request):
 	signup_form = UserSignUpForm()
 	user_login_form = LoginForm()
 	no_user_flag = False
-	account_taken_flag = False
-	email_taken_flag = False
 	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "no_user_flag" : no_user_flag}
 
 	if (request.method == 'POST') and 'submit_signup' in request.POST:
@@ -230,21 +228,17 @@ def signup(request):
 			username = signup_form.cleaned_data['username']
 			password = signup_form.cleaned_data['password']
 			email = signup_form.cleaned_data['email']
-			temp1 = User.objects.all().filter(username = username)
-			temp2 = User.objects.all().filter(email = email)
-			if temp1 is not None or temp2 is not None:
-				account_taken_flag = True
+			user.username = username
+			user.set_password(password)
+			user.email = email
+			user.save()
+			user = authenticate(username = username, password = password)
+			if user is not None:
+				login(request, user)
+				no_user_flag = False
+				return redirect('index')
 			else:
-				user.username = username
-				user.set_password(password)
-				user.email = email
-				user = authenticate(username = username, password = password)
-				if user is not None:
-					login(request, user)
-					no_user_flag = False
-					return redirect('index')
-				else:
-					no_user_flag = True
+				no_user_flag = True
 
 	elif (request.method == 'POST') and 'submit_login' in request.POST:
 		user_login_form = LoginForm(request.POST)
@@ -259,7 +253,7 @@ def signup(request):
 			else:
 				no_user_flag = True
 
-	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "no_user_flag" : no_user_flag, "account_taken_flag": account_taken_flag}
+	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "no_user_flag" : no_user_flag}
 	return render(request, 'foll/signup.html', context)
 
 

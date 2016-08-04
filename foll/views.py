@@ -219,7 +219,7 @@ def signup(request):
 	signup_form = UserSignUpForm()
 	user_login_form = LoginForm()
 	no_user_flag = False
-	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "status_flag" : status_flag}
+	context = {'signup_form': signup_form, 'user_login_form': user_login_form, "no_user_flag" : no_user_flag}
 
 	if (request.method == 'POST') and 'submit_signup' in request.POST:
 		signup_form = UserSignUpForm(request.POST)

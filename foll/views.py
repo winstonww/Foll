@@ -231,7 +231,7 @@ def signup(request):
 			email = signup_form.cleaned_data['email']
 			user_signup.username = username
 			user_signup.set_password(password)
-			uuser_signupser.email = email
+			user_signup.email = email
 			user_signup.save()
 			user = authenticate(username = username, password = password)
 			if user is not None:

@@ -53,12 +53,12 @@
 }
 
 .newsfeed_panel {
-	height:350px;
+	min-height:350px;
 	
 }
 
 .food_panel{
-	height: 350px;
+	min-height: 350px;
 	
 }
 .invitation_panel{
@@ -70,7 +70,7 @@
 
 #friends_in_party_panel{
 	padding-top:30px;
-	height:380px;
+	min-height:380px;
 
 }
 

@@ -30,7 +30,11 @@ class FoodForm(ModelForm):
 
 
 class PartyForm(ModelForm):
-	date_time = forms.DateTimeField(widget=DateTimeWidget(usel10n=True, bootstrap_version=3))
+	date_time = forms.DateTimeField(widget=DateTimeWidget(usel10n=True, bootstrap_version=3),  required = True)
+	max_budget = forms.IntegerField(required = True)
+	max_size = forms.IntegerField(required = True)
+	location = forms.CharField(required = True)
+	name = forms.CharField(required = True)
 	def __init__(self, *args, **kwargs):
 		super(PartyForm, self).__init__(*args, **kwargs)
 		self.helper = FormHelper()

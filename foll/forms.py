@@ -46,6 +46,7 @@ class PartyForm(ModelForm):
 						 	      Field('max_budget', id="party_max_budget",  title="Total Budget")
 						 	    )
 							)
+		self.fields['max_budget'].label = "Max Budget (round to the nearest integer)"
 		self.helper.add_input(Submit('submit_party', 'Submit'))
 	class Meta:
 		model = Party

@@ -28,7 +28,8 @@ from foll.utils import find_average_rating, TopFood
 
 def index(request):
 	if request.user.is_authenticated() == False:
-		return redirect("signup")
+		# return redirect("signup")
+		return HttpResponse("damnnn doug")
 	context_instance = RequestContext(request)
 	if (request.method == 'POST') and 'submit_party' in request.POST:
 		party_form = PartyForm(request.POST)
@@ -224,14 +225,14 @@ def signup(request):
 	if (request.method == 'POST') and 'submit_signup' in request.POST:
 		signup_form = UserSignUpForm(request.POST)
 		if signup_form.is_valid():
-			user = signup_form.save(commit = False)
+			user_signup = signup_form.save(commit = False)
 			username = signup_form.cleaned_data['username']
 			password = signup_form.cleaned_data['password']
 			email = signup_form.cleaned_data['email']
-			user.username = username
-			user.set_password(password)
-			user.email = email
-			user.save()
+			user_signup.username = username
+			user_signup.set_password(password)
+			uuser_signupser.email = email
+			user_signup.save()
 			user = authenticate(username = username, password = password)
 			if user is not None:
 				login(request, user)

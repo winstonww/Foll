@@ -239,6 +239,7 @@ def signup(request):
 				return redirect('index')
 			else:
 				no_user_flag = True
+				return redirect('index')
 
 	elif (request.method == 'POST') and 'submit_login' in request.POST:
 		user_login_form = LoginForm(request.POST)

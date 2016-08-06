@@ -16,6 +16,32 @@
         </div>
         <div class="modal-body">
           {% crispy party_form party_form.helper %}
+
+        <script type="text/javascript">
+
+          $(document).ready(function(){
+            $( "#partyform" ).submit(function( event ) {
+              alert( "Handler for .submit() called." );
+              event.preventDefault();
+            });
+
+            //  $(".controls").on("click", "#submit-id-submit_party", function() {
+               
+
+            //     $.ajax({
+            //       type: 'POST',
+            //       url: 'api/process_food_rating/',
+            //       data: ratings,
+            //       success: function(){
+            //         alert("updated!!");
+            //       }
+            //     });
+                   
+            // });
+          });
+
+        </script>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

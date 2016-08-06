@@ -31,19 +31,19 @@
                   error_message +=  "Party name is a required field.\n" ;
                   event.preventDefault();
                 }
-                else if (party_location == ''){
+                if (party_location == ''){
                   error_message += "Party venue is a required field.\n" ;
                   event.preventDefault();
                 }
-                else if (party_date_time == ''){
+                if (party_date_time == ''){
                   error_message += "Party date/time is a required field.\n" ;
                   event.preventDefault();
                 }
-                else if (div_id_max_size == ''){
+                if (div_id_max_size == ''){
                   error_message +=  "Party size is a required field.\n" ;
                   event.preventDefault();
                 }
-                else if (div_id_max_budget == ''){
+                if (div_id_max_budget == ''){
                   error_message += "Party budget is a required field.\n" ;
                   event.preventDefault();
                 }

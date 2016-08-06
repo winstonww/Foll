@@ -21,7 +21,6 @@
 
           $(document).ready(function(){
             $( "#partyform" ).submit(function( event ){
-              alert( "Handler for .submit() called." );
               var party_name = $("#party_name").val();
               var party_location = $("#party_location").val();
               var party_date_time = $("#party_date_time").val();
@@ -47,6 +46,9 @@
                 else if (div_id_max_budget == ''){
                   error_message += "Party budget is a required field.\n" ;
                   event.preventDefault();
+                }
+                if (error_message != ''){
+                  alert(error_message);
                 }
 
               });

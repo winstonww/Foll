@@ -48,7 +48,9 @@
                   event.preventDefault();
                 }
                 if (error_message != ''){
-                  alert(error_message);
+                   setTimeout(function(){
+                    alert(error_message);
+                    }, 1000);
                 }
 
               });

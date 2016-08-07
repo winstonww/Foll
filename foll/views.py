@@ -262,10 +262,14 @@ def signup(request):
 
 def delete_food(request, food_id):
 	# delete the food along with its rating record
+	
 	food_to_be_deleted = Food.objects.get(id = food_id)
 	party = food_to_be_deleted.belong_to_party
-	
-	pass
+	ratings_to_be_deleted = FoodRating.objects.all().filter(food = food_to_deleted)
+	food_to_be_deleted.delete()
+	ratings_to_be_deleted.delete()
+	return party_details(request, party.id)
+
 
 
 

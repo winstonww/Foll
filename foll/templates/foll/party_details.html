@@ -92,7 +92,7 @@
 		<div class = "col-lg-7">
 			<div class="panel panel-default panel-table" id = "your_food_panel">
 		 		<div class="panel-heading clearfix">
-		  			<h3 class="panel-title pull-left" style ="padding-top:5px;">You proposed:</h3>
+		  			<h3 class="panel-title pull-left" style ="padding-top:5px;">Your suggestions</h3>
 
 		  			<div class="btn-group pull-right add-and-edit-rating-button-group">
 			  			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#foodform_modal" >
@@ -137,7 +137,7 @@
 										<td>{{food_info.price}}</td>
 										<td> {{food_info.avg_rating}}</td>
 										<td>
-					     					<button type="button" class="btn btn-sm pull-right" href = "delete_food" id = "food_info.id_remove_button" >
+					     					<button type="button" class="btn btn-sm pull-right" href = "{% url 'delete_food' food_info.id %}"" id = "food_info.id_remove_button" >
 								 			<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
 								 			 Remove
 								 			</button>

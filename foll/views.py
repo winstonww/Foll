@@ -260,7 +260,12 @@ def signup(request):
 
 
 
-
+def delete_food(request, food_id):
+	# delete the food along with its rating record
+	food_to_be_deleted = Food.objects.get(id = food_id)
+	party = food_to_be_deleted.belong_to_party
+	
+	pass
 
 
 
@@ -347,6 +352,7 @@ def process_food_rating(request):
 	elif request.method == 'DELETE':
 		user_in_party_status.delete()
 		return HttpResponse(status=204)
+
 
 
 

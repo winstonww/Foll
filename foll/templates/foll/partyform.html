@@ -46,11 +46,11 @@
                   event.preventDefault();
                 }
                 if (div_id_max_budget == ''){
-                  error_message += "• Party budget is a required field.\n" ;
+                  error_message += "• Party budget" ;
                   event.preventDefault();
                 }
                 if (error_message != ''){
-                    var full_error_message = "<strong> Please fill in the following: </strong>";
+                    var full_error_message = "<strong> One or more of the following is missing: <br> </strong>";
                     full_error_message += error_message;
                     $(".error_message_party_form").html(full_error_message);
                     $(".error_message_party_form").removeClass('hidden');

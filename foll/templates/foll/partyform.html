@@ -30,19 +30,19 @@
               var div_id_max_budget = $('#div_id_max_budget').val();
               var error_message = '';
                 if (party_name == ''){
-                  error_message +=  "• Party name is a required field.\n" ;
+                  error_message +=  "•  Party name <br>" ;
                   event.preventDefault();
                 }
                 if (party_location == ''){
-                  error_message += "• Party venue is a required field.\n" ;
+                  error_message += "•  Location <br>" ;
                   event.preventDefault();
                 }
                 if (party_date_time == ''){
-                  error_message += "• Party date/time is a required field.\n" ;
+                  error_message += "•  Date/Time <br>" ;
                   event.preventDefault();
                 }
                 if (div_id_max_size == ''){
-                  error_message +=  "• Party size is a required field.\n" ;
+                  error_message +=  "• Size <br>" ;
                   event.preventDefault();
                 }
                 if (div_id_max_budget == ''){
@@ -50,7 +50,9 @@
                   event.preventDefault();
                 }
                 if (error_message != ''){
-                    $(".error_message_party_form").html(error_message);
+                    var full_error_message = "<strong> Please fill in the following: </strong>";
+                    full_error_message += error_message;
+                    $(".error_message_party_form").html(full_error_message);
                     $(".error_message_party_form").removeClass('hidden');
                 
                 }

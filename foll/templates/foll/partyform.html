@@ -15,6 +15,8 @@
           <h4 class="modal-title">Add a Party</h4>
         </div>
         <div class="modal-body">
+          <div class="alert alert-danger error_message_party_form hidden" role="alert">
+          </div>
           {% crispy party_form party_form.helper %}
 
         <script type="text/javascript">
@@ -48,9 +50,9 @@
                   event.preventDefault();
                 }
                 if (error_message != ''){
-                   setTimeout(function(){
-                    alert(error_message);
-                    }, 1000);
+                    $(".error_message_party_form").html(error_message);
+                    $(".error_message_party_form").removeClass('hidden');
+                
                 }
 
               });

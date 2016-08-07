@@ -136,6 +136,12 @@
 										<td> {{food_info.name}} </td>
 										<td>{{food_info.price}}</td>
 										<td> {{food_info.avg_rating}}</td>
+										<td>
+					     					<button type="button" class="btn btn-sm" id = "food_info.id_remove_button" >
+								 			<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+								 			 Remove
+								 			</button>
+					     				</td>
 									</tr>
 								{% endfor %}
 								{% endif %}
@@ -178,12 +184,6 @@
 			       					<td> {{food_info.name}} </td>
 			       					<td>{{food_info.price}}</td>
 			     					<td>{{food_info.avg_rating}}</td>
-			     					<td>
-			     					<button type="button" class="btn btn-sm" id = "food_info.id_remove_button" >
-						 			<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-						 			 Remove
-						 			</button>
-			     					</td>
 			     				</tr>
 								{% endfor %}
 			    			</tbody>

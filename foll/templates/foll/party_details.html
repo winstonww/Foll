@@ -90,7 +90,7 @@
 
 	<div class = "row">
 		<div class = "col-lg-7">
-			<div class="panel panel-default panel-table" id = "all_food_panel">
+			<div class="panel panel-default panel-table" id = "your_food_panel">
 		 		<div class="panel-heading clearfix">
 		  			<h3 class="panel-title pull-left" style ="padding-top:5px;">You proposed:</h3>
 
@@ -121,14 +121,26 @@
 			        				<th>Food</th>
 			        				<th>Price</th>
 			        				<th>Average Rating </th>
-			        				<th>Rating</th>
+			        				<th>Your Rating</th>
 
 			     				</tr>
 			   				</thead>
 
 
 			  				<tbody>
-			  					{% include 'foll/food_rating.html' %}
+			  					{% if partyfood_list_empty %}
+									<tr>
+										<td> No food </td>
+									</tr>
+								{% else %}
+								{% for food_info in partyfood_list %}
+									<tr>
+										<td> {{food_info.name}} </td>
+										<td>{{food_info.price}}</td>
+										<td> {{food_info.avg_rating}}</td>
+									</tr>
+								{% endfor %}
+								{% endif %}
 			    			</tbody>
 			  			</table>
 			  		</div>

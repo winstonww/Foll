@@ -11,6 +11,46 @@
         </div>
         <div class="modal-body">
          {% crispy food_form food_form.helper %}
+         <script type="text/javascript">
+           $(document).ready(function(){
+            $( "#partyform" ).submit(function( event ){
+              var party_name = $("#party_name").val();
+              var party_location = $("#party_location").val();
+              var party_date_time = $("#party_date_time[name = date_time]").val();
+              var div_id_max_size  = $("#party_max_size").val();
+              var div_id_max_budget = $('#party_max_budget').val();
+              var error_message = '';
+                if (party_name == ''){
+                  error_message +=  "•  Party name <br>" ;
+                  event.preventDefault();
+                }
+                if (party_location == ''){
+                  error_message += "•  Location <br>" ;
+                  event.preventDefault();
+                }
+                if (party_date_time == ''){
+                  error_message += "•  Date/Time <br>" ;
+                  event.preventDefault();
+                }
+                if (div_id_max_size == ''){
+                  error_message +=  "• Size <br>" ;
+                  event.preventDefault();
+                }
+                if (div_id_max_budget == ''){
+                  error_message += "• Party budget" ;
+                  event.preventDefault();
+                }
+                if (error_message != ''){
+                    var full_error_message = "<strong> One or more of the following fields are missing: <br> </strong>";
+                    full_error_message += error_message;
+                    $(".error_message_party_form").html(full_error_message);
+                    $(".error_message_party_form").removeClass('hidden');
+                
+                }
+
+              });
+            });
+         </script>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

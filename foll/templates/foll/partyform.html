@@ -50,7 +50,7 @@
                   event.preventDefault();
                 }
                 if (error_message != ''){
-                    var full_error_message = "<strong> One or more of the following is missing: <br> </strong>";
+                    var full_error_message = "<strong> One or more of the following fields are missing: <br> </strong>";
                     full_error_message += error_message;
                     $(".error_message_party_form").html(full_error_message);
                     $(".error_message_party_form").removeClass('hidden');

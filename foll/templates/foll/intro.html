@@ -215,36 +215,32 @@
 
 <!-- Menu toggle script -->
 <script>
-$(document).ready(function() {
+// $(document).ready(function() {
 
 
-	$("#members_newsfeed").show();
+// 	$("#members_newsfeed").show();
 
-	$("#food_newsfeed").hide();
+// 	$("#food_newsfeed").hide();
 
 
-	$(".newsfeed_panel").on("click", "#food_newsfeed_button", function() {
-		$("#members_newsfeed").hide();
-		$("#food_newsfeed").show();
+// 	$(".newsfeed_panel").on("click", "#food_newsfeed_button", function() {
+// 		$("#members_newsfeed").hide();
+// 		$("#food_newsfeed").show();
 
-	});
+// 	});
 
-	$(".newsfeed_panel").on("click", "#members_newsfeed_button", function() {
-		$("#members_newsfeed").show();
-		$("#food_newsfeed").hide();
-	});
-
+// 	$(".newsfeed_panel").on("click", "#members_newsfeed_button", function() {
+// 		$("#members_newsfeed").show();
+// 		$("#food_newsfeed").hide();
+// 	});
+//});
 	
-	$(document).ready(function() {
+$(document).ready(function() {
 
 	$("#menu-toggle").click( function (e){
 		    e.preventDefault();
 		    $("#wrapper").toggleClass("toggled");
 	});
-});
-
-
-
 });
 </script>
 

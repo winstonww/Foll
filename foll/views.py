@@ -268,7 +268,7 @@ def delete_food(request, food_id):
 	ratings_to_be_deleted = FoodRating.objects.all().filter(food = food_to_be_deleted)
 	food_to_be_deleted.delete()
 	ratings_to_be_deleted.delete()
-	return party_details(request, party.id)
+	return redirect(party_details, party_id = pary.id)
 
 
 

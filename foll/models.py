@@ -7,7 +7,7 @@ from django.dispatch.dispatcher import receiver
 from django_facebook.models import FacebookModel
 from django.db.models.signals import post_save
 from django_facebook.utils import get_user_model, get_profile_model
-from foll import settings
+from partyfood import settings
 
 # Create your models here.
 class Party(models.Model):

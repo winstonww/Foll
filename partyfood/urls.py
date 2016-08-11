@@ -22,6 +22,8 @@ admin.autodiscover()
 urlpatterns = [
 	url(r'^', include('foll.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^facebook/', include('django_facebook.urls')),
+    url(r'^accounts/', include('django_facebook.auth_urls')), #Don't add this line if you use django registration or userena for registration and auth.
 ]
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

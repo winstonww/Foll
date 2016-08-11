@@ -44,7 +44,22 @@ INSTALLED_APPS = [
     'crispy_forms',
     'datetimewidget',
     'rest_framework',
+    'django_facebook',
 ]
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'django_facebook.context_processors.facebook',
+)
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,6 +91,9 @@ TEMPLATES = [
         },
     },
 ]
+
+
+
 
 WSGI_APPLICATION = 'partyfood.wsgi.application'
 
@@ -151,3 +169,15 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 STATIC_ROOT = "/home/winstonww/partyfood/static"
 
+FACEBOOK_APP_ID = '1554249104883767'
+
+FACEBOOK_APP_SECRET = 'e1e2ed8d10b4fdde7e969c19441efe18' 
+
+AUTHENTICATION_BACKENDS  = (
+'django_facebook.auth_backends.FacebookBackend',
+'django.contrib.auth.backends.ModelBackend',
+)
+
+AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+
+FACEBOOK_REGISTRATION_BACKEND = 'registration.backends.default.DefaultBackend'

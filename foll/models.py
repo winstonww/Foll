@@ -34,8 +34,8 @@ class Party(models.Model):
 
 class UserInParty(models.Model):
 	#no pk
-	user = models.ForeignKey(User, related_name = "user")
-	invited_by = models.ForeignKey(User, related_name = "inviter", default=1)
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "user")
+	invited_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "inviter", default=1)
 	party = models.ForeignKey(Party)
 	invite_message = models.CharField(max_length = 2000, null=True, blank=True)
 	invitation_accepted = models.IntegerField(default = 0)
@@ -53,7 +53,7 @@ class Food(models.Model):
 	price = models.IntegerField(default = 0)
 	name = models.CharField(max_length = 30)
 	desc = models.CharField(max_length = 200, null=True, blank=True)
-	brought_by = models.ForeignKey(User, default = 1)
+	brought_by = models.ForeignKey(settings.AUTH_USER_MODEL, default = 1)
 	belong_to_party = models.ForeignKey(Party, default = 1)
 	date_added = models.DateTimeField(auto_now_add= True, blank=True)
 	avg_rating = models.DecimalField(default = 0, decimal_places = 2, max_digits = 4)
@@ -66,7 +66,7 @@ class Food(models.Model):
 
 class FoodRating(models.Model):
 	food = models.ForeignKey(Food)
-	rated_by = models.ForeignKey(User, default = 1)
+	rated_by = models.ForeignKey(settings.AUTH_USER_MODEL, default = 1)
 	rating = models.IntegerField(default = 0)
 	def __str__(self):
 	   return 'Food: ' + self.food.name + '   ||   Party: '+self.food.belong_to_party.name

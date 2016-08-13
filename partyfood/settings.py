@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'datetimewidget',
     'rest_framework',
     'django_facebook',
+    'registration',
 ]
 
 
@@ -188,3 +189,4 @@ AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
 
 FACEBOOK_REGISTRATION_BACKEND = 'registration.backends.default.DefaultBackend'
+

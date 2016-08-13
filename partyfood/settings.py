@@ -188,5 +188,5 @@ AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
 AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
 
-FACEBOOK_REGISTRATION_BACKEND = 'registration.backends.default.DefaultBackend'
+
 

@@ -77,14 +77,3 @@ class TopRatedFood(models.Model):
 
 
 
-# class MyCustomProfile(FacebookModel):
-#     user = models.OneToOneField(settings.AUTH_USER_MODEL)
-
-#     @receiver(post_save)
-#     def create_profile(sender, instance, created, **kwargs):
-#         """Create a matching profile whenever a user object is created."""
-#         if sender == get_user_model():
-#             user = instance
-#             profile_model = get_profile_model()
-#         if profile_model == MyCustomProfile and created:
-#             profile, new = MyCustomProfile.objects.get_or_create(user=instance)

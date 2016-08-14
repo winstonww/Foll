@@ -25,7 +25,7 @@ from foll.utils import find_average_rating, TopFood
 
 #django_facebook
 # from open_facebook import OpenFacebook
-# from django_facebook import API
+from django_facebook import API
 
 
 

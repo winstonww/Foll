@@ -101,7 +101,7 @@ def index(request):
 	"invitation_num": invitation_num, "party_num": party_num, "food_newsfeed": food_newsfeed,
 	"friends_in_party_newsfeed": friends_in_party_newsfeed, "food_newsfeed_num": food_newsfeed_num,
 	"members_newsfeed_num": members_newsfeed_num , "food_to_bring": food_to_bring, "food_to_bring_length": len(food_to_bring)
-	, "my_info" = my_info}
+	, "my_info": my_info}
 
 
 	return render(request, 'foll/intro.html', context, context_instance)

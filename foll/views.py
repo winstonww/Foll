@@ -60,9 +60,10 @@ def index(request):
 
 
 	#retrieve info from facebook
-	graph = OpenFacebook(access_token)
-	# graph = require_facebook_graph(request)
+	# graph = OpenFacebook(access_token)
+	graph = require_facebook_graph(request)
 	my_info = graph.get('winstonww')
+	my_friends = get_friends();
 
 
 
@@ -102,7 +103,7 @@ def index(request):
 	"invitation_num": invitation_num, "party_num": party_num, "food_newsfeed": food_newsfeed,
 	"friends_in_party_newsfeed": friends_in_party_newsfeed, "food_newsfeed_num": food_newsfeed_num,
 	"members_newsfeed_num": members_newsfeed_num , "food_to_bring": food_to_bring, "food_to_bring_length": len(food_to_bring)
-	, "my_info": my_info}
+	, "my_info": my_info, "my_friends":my_friends}
 
 
 	return render(request, 'foll/intro.html', context, context_instance)

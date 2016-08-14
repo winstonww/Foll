@@ -363,13 +363,13 @@ def process_food_rating(request):
 		return HttpResponse(status=204)
 
 
-class CustomBackend(FacebookRegistrationBackend):
-    def post_connect(action):
-        # go as crazy as you want, just be sure to return a response
-        response = HttpRedirect('/something/')
-        if action is CONNECT_ACTIONS.LOGIN:
-            response = HttpRedirect('/')
-        return response
+# class CustomBackend(FacebookRegistrationBackend):
+#     def post_connect(action):
+#         # go as crazy as you want, just be sure to return a response
+#         response = HttpRedirect('/something/')
+#         if action is CONNECT_ACTIONS.LOGIN:
+#             response = HttpRedirect('/')
+#         return response
 
 
 

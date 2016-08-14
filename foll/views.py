@@ -23,6 +23,10 @@ from foll.serializers import UserInPartySerializer, FoodRatingSerializer
 #from utils.py
 from foll.utils import find_average_rating, TopFood
 
+#django_facebook
+from open_facebook import OpenFacebook
+from django_facebook import API
+
 
 
 
@@ -53,6 +57,7 @@ def index(request):
 		invitation_form = PartyInvitationForm()
 
 	party_info = []
+	graph = require_facebook_graph(request)
 	my_party = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 1)
 	for friend_party_pair in my_party:
 		party_info.append(friend_party_pair.party)
@@ -357,6 +362,14 @@ def process_food_rating(request):
 		user_in_party_status.delete()
 		return HttpResponse(status=204)
 
+
+class CustomBackend(FacebookRegistrationBackend):
+    def post_connect(action):
+        # go as crazy as you want, just be sure to return a response
+        response = HttpRedirect('/something/')
+        if action is CONNECT_ACTIONS.LOGIN:
+            response = HttpRedirect('/')
+        return response
 
 
 

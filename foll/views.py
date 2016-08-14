@@ -57,7 +57,15 @@ def index(request):
 		invitation_form = PartyInvitationForm()
 
 	party_info = []
+
+
+	#retrieve info from facebook
 	graph = require_facebook_graph(request)
+	my_info = graph.get('me')
+
+
+
+
 	my_party = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 1)
 	for friend_party_pair in my_party:
 		party_info.append(friend_party_pair.party)
@@ -92,7 +100,8 @@ def index(request):
 	context = {"party_form": party_form, "party_info": party_info, "party_invitations": party_invitations,
 	"invitation_num": invitation_num, "party_num": party_num, "food_newsfeed": food_newsfeed,
 	"friends_in_party_newsfeed": friends_in_party_newsfeed, "food_newsfeed_num": food_newsfeed_num,
-	"members_newsfeed_num": members_newsfeed_num , "food_to_bring": food_to_bring, "food_to_bring_length": len(food_to_bring)}
+	"members_newsfeed_num": members_newsfeed_num , "food_to_bring": food_to_bring, "food_to_bring_length": len(food_to_bring)
+	, "my_info" = my_info}
 
 
 	return render(request, 'foll/intro.html', context, context_instance)

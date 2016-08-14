@@ -1,9 +1,17 @@
 {% extends 'foll/base.html' %}
 {% load crispy_forms_tags %}
 
-
-
 {% block content %}
+	{% for item in my_info %}
+	<h2> {{item}} </h2>
+	{% endfor %}
+{% endblock %}
+
+
+
+
+
+{% block content2 %}
 <head>
 	
     {{ party_form.media }}

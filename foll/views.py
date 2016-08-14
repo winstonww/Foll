@@ -60,7 +60,8 @@ def index(request):
 
 
 	#retrieve info from facebook
-	graph = require_facebook_graph(request)
+	graph = OpenFacebook(accesss_token)
+	# graph = require_facebook_graph(request)
 	my_info = graph.get('apple')
 
 

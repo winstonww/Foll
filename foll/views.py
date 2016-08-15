@@ -62,7 +62,7 @@ def index(request):
 	#retrieve info from facebook
 	# graph = OpenFacebook(access_token)
 	graph = require_facebook_graph(request)
-	# my_info = graph.get('winstonww')
+	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
 	my_friends = converter.get_friends();
 

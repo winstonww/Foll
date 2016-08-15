@@ -190,3 +190,4 @@ AUTH_PROFILE_MODULE = 'django_facebook.FacebookProfile'
 
 FACEBOOK_STORE_LOCAL_IMAGE = False
 
+FACEBOOK_DEFAULT_SCOPE = ['email', 'user_about_me', 'user_birthday', 'user_website',  'user_friends']

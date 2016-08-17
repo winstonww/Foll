@@ -1,6 +1,10 @@
 from django.contrib import admin
 from foll.models import Food, Party, FoodRating, UserInParty, User, TopRatedFood
 # Register your models here.
+class UserAdmin(admin.ModelAdmin):
+    list_display = ['username', 'id']
+
+admin.site.register(User, UserAdmin)
 
 
 class UserInPartyAdmin(admin.ModelAdmin):

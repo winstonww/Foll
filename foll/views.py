@@ -27,8 +27,9 @@ from foll.utils import find_average_rating, TopFood
 from open_facebook import OpenFacebook
 from django_facebook.api import require_facebook_graph, FacebookUserConverter
 
-
-
+#autocomplete
+# from dal import autocomplete
+from foll.models import User
 
 def index(request):
 	if request.user.is_authenticated() == False:
@@ -66,7 +67,7 @@ def index(request):
 	except:
 		logout(request)
 		return redirect("signup")
-		
+
 	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
 	my_friends = converter.get_friends()
@@ -379,14 +380,12 @@ def process_food_rating(request):
 		user_in_party_status.delete()
 		return HttpResponse(status=204)
 
+# @csrf_exempt
+# def invite_friends_autocomplete(request):
 
-# class CustomBackend(FacebookRegistrationBackend):
-#     def post_connect(action):
-#         # go as crazy as you want, just be sure to return a response
-#         response = HttpRedirect('/something/')
-#         if action is CONNECT_ACTIONS.LOGIN:
-#             response = HttpRedirect('/')
-#         return response
+
+
+
 
 
 

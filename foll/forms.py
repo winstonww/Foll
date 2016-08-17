@@ -10,6 +10,8 @@ from crispy_forms.bootstrap import InlineField, StrictButton
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, Div, Field
 from datetimewidget.widgets import DateTimeWidget
 
+#autocomplete
+# from dal import autocomplete
 
 class FoodForm(ModelForm):
 	rating = forms.IntegerField(label = "rating:", min_value=1, max_value=50)
@@ -104,6 +106,10 @@ class PartyInvitationForm(ModelForm):
 	class Meta:
 		model = UserInParty
 		fields = ['user', 'invite_message']
+		# widgets = {
+		# 	'user': autocomplete.ModelSelect2(url = 'user-autocomplete')
+		# }
+
 
 	def __init__(self, *args, **kwargs):
 		super(PartyInvitationForm, self).__init__(*args, **kwargs)

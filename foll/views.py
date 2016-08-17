@@ -29,7 +29,7 @@ from django_facebook.api import require_facebook_graph, FacebookUserConverter
 
 #autocomplete
 # from dal import autocomplete
-from django_facebook import FacebookCustomUser
+
 
 def index(request):
 	if request.user.is_authenticated() == False:

@@ -29,7 +29,7 @@ from django_facebook.api import require_facebook_graph, FacebookUserConverter
 
 #autocomplete
 # from dal import autocomplete
-from foll.models import User
+from django_facebook import FacebookCustomUser
 
 def index(request):
 	if request.user.is_authenticated() == False:
@@ -71,7 +71,7 @@ def index(request):
 	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
 	# my_friends = converter.get_friends()
-	my_friends = User.objects.all()
+	my_friends = FacebookCustomUser.objects.all()
 
 
 

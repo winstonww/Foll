@@ -18,10 +18,10 @@ class FoodAdmin(admin.ModelAdmin):
 admin.site.register(Food, FoodAdmin)
 
 
-class PartyAdmin(admin.ModelAdmin):
-    list_display  = ['id' ,'name',  'location', 'location_lat', 'location_lng', 'date_time', 'max_size', 'max_budget']
+# class PartyAdmin(admin.ModelAdmin):
+#     list_display  = ['id' ,'name',  'location', 'location_lat', 'location_lng', 'date_time', 'max_size', 'max_budget']
 
-admin.site.register(Party, PartyAdmin)
+# admin.site.register(Party, PartyAdmin)
 
 class TopRatedFoodAdmin(admin.ModelAdmin):
     list_display = ['top_rated_food_id']

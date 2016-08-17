@@ -70,7 +70,9 @@ def index(request):
 
 	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
-	my_friends = converter.get_friends()
+	# my_friends = converter.get_friends()
+	my_friends = User.objects.all()
+
 
 
 

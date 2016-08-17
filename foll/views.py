@@ -10,6 +10,7 @@ from django.views.generic import View
 from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime
 from django.http import Http404
+from partyfood import settings
 
 # Serializer API
 
@@ -19,6 +20,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from foll.models import UserInParty
 from foll.serializers import UserInPartySerializer, FoodRatingSerializer
+
 
 #from utils.py
 from foll.utils import find_average_rating, TopFood
@@ -70,8 +72,8 @@ def index(request):
 
 	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
-	my_friends = converter.get_friends()
-
+	# my_friends = converter.get_friends()
+	my_friends = setting.AUTH_USER_MODEL.objects.all()
 
 
 

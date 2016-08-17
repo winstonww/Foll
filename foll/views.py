@@ -73,7 +73,7 @@ def index(request):
 	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
 	# my_friends = converter.get_friends()
-	my_friends = setting.AUTH_USER_MODEL.objects.all()
+	my_friends = settings.AUTH_USER_MODEL.objects.all()
 
 
 

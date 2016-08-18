@@ -73,10 +73,7 @@ def index(request):
 	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
 	# my_friends = converter.get_friends()
-   	my_friends = get_user_model()
-
-
-
+	my_friends = get_user_model()
 
 
 	my_party = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 1)

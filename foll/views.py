@@ -30,7 +30,7 @@ from open_facebook import OpenFacebook
 from django_facebook.api import require_facebook_graph, FacebookUserConverter
 from django.contrib.auth import get_user_model
 #autocomplete
-# from dal import autocomplete
+from dal import autocomplete
 
 
 def index(request):
@@ -383,13 +383,23 @@ def process_food_rating(request):
 		return HttpResponse(status=204)
 
 # @csrf_exempt
-# def invite_friends_autocomplete(request):
 
-
-
-
-
-
+class UserAutoComplete(autocomplete.Select2QuerySetView):
+	def get_queryset(self):
+		if not self.request.user.is_authenticated():
+			return
+		User = get_user_model()
+		my_info = graph.get('me')
+		converter = FacebookUserConverter(graph)
+		my_friends = converter.get_friends()
+		my_friends_facebook_id = []
+		for friend in my_Friends:
+			if friend["id"] == None:
+				continue
+			else:
+				my_friends_facebook_id.append(friend["id"])
+		users = User.objects.all().filter(facebook_id__in = my_friends_facebook_id)
+		return users
 
 
 # retreive data from form

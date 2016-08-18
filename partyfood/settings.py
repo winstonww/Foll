@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_facebook',
     'registration',
+    'dal',
+    'dal_select2',
 ]
 
 

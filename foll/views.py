@@ -28,7 +28,7 @@ from foll.utils import find_average_rating, TopFood
 #django_facebook
 from open_facebook import OpenFacebook
 from django_facebook.api import require_facebook_graph, FacebookUserConverter
-
+from django.contrib.auth import get_user_model
 #autocomplete
 # from dal import autocomplete
 
@@ -73,7 +73,7 @@ def index(request):
 	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
 	# my_friends = converter.get_friends()
-	my_friends = settings.AUTH_USER_MODEL.objects.all()
+   	my_friends = get_user_model()
 
 
 

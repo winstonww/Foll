@@ -1,8 +1,11 @@
 from django.contrib import admin
-from foll.models import Food, Party, FoodRating, UserInParty, User, TopRatedFood
+from foll.models import Food, Party, FoodRating, UserInParty, User, TopRatedFood, UserData
 # Register your models here.
 
+class UserDataAdmin(admin.ModelAdmin):
+    list_display ['facebook_name', 'local_django_id', 'facebook_id']
 
+admin.site.register(UserData, UserDataAdmin)
 
 class UserInPartyAdmin(admin.ModelAdmin):
     list_display  = ['invitation_id', 'user', 'party', 'invitation_accepted']

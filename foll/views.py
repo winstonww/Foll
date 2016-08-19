@@ -29,6 +29,7 @@ from foll.utils import find_average_rating, TopFood
 from open_facebook import OpenFacebook
 from django_facebook.api import require_facebook_graph, FacebookUserConverter
 from django.contrib.auth import get_user_model
+from open_facebook.api.FacebookAuthorization import get_app_access_token, extend_access_token
 #autocomplete
 from dal import autocomplete
 

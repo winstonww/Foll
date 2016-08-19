@@ -1,7 +1,7 @@
 {% extends 'foll/base.html' %}
 {% load crispy_forms_tags %}
 
-{% block content %}
+{% block content2 %}
 	<h2 style = "margin-top: 100px; padding-top: 100px;"> {{my_info}} </h2>
 	{% for friend in my_friends %}
 	<h2 style = "margin-top: 100px; padding-top: 100px;"> {{friend}} </h2>
@@ -12,7 +12,7 @@
 
 
 
-{% block content2 %}
+{% block content %}
 <head>
 	
     {{ party_form.media }}

@@ -49,12 +49,12 @@ def index(request):
 
 	my_info = graph.get('me')
 
-	# if new_user_data == None:
-	# 	new_user = UserData.objects.create()
-	# 	new_user.local_django_id = request.user.id
-	# 	new_user.facebook_id = my_info['id']
-	# 	new_user.facebook_name = my_info['name']
-	# 	new_user.save()
+	if new_user_data == None:
+		new_user = UserData.objects.create()
+		new_user.local_django_id = request.user.id
+		new_user.facebook_id = my_info['id']
+		new_user.facebook_name = my_info['name']
+		new_user.save()
 
 	if (request.method == 'POST') and 'submit_party' in request.POST:
 		party_form = PartyForm(request.POST)

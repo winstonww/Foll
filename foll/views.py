@@ -36,8 +36,8 @@ from dal import autocomplete
 
 def index(request):
 	if request.user.is_authenticated() == False:
-		# return redirect("signup")
-		return HttpResponse("damnnn doug")
+		return redirect("signup")
+		# return HttpResponse("damnnn doug")
 	context_instance = RequestContext(request)
 
 	User = get_user_model()

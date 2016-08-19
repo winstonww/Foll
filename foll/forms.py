@@ -11,7 +11,7 @@ from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit, Div, Fie
 from datetimewidget.widgets import DateTimeWidget
 
 #autocomplete
-# from dal import autocomplete
+from dal import autocomplete
 
 class FoodForm(ModelForm):
 	rating = forms.IntegerField(label = "rating:", min_value=1, max_value=50)
@@ -123,6 +123,9 @@ class PartyInvitationFormAlternative(ModelForm):
 	class Meta:
 		model = UserData
 		fields = ['facebook_name']
+		widgets = {
+            'facebook_name': autocomplete.ModelSelect2(url='invitation-form-autocomplete')
+        }
 
 	def __init__(self, *args, **kwargs):
 		super(PartyInvitationFormAlternative, self).__init__(*args, **kwargs)

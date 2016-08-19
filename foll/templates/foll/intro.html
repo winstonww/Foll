@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
+	<h2 style = "margin-top: 100px; padding-top: 100px;"> {{my_friends}} </h2>
 	{% for friend in my_friends %}
 	<h2 style = "margin-top: 100px; padding-top: 100px;"> {{friend}} </h2>
 	{% endfor %}

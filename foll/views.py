@@ -45,6 +45,7 @@ def index(request):
 		graph = require_facebook_graph(request)
 	except:
 		logout(request)
+		return HttpResponse("omg")
 		return redirect("signup")
 
 	my_info = graph.get('me')

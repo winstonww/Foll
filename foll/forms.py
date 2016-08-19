@@ -118,4 +118,16 @@ class PartyInvitationForm(ModelForm):
 		self.helper.form_class = 'blueForms'
 		self.helper.form_method = 'post'
 		self.helper.add_input(Submit('submit_invitation', 'Send Inivtation'))
-		
+
+class PartyInvitationFormAlternative(ModelForm):
+	class Meta:
+		model = UserData
+		fields = ['facebook_name']
+
+	def __init__(self, *args, **kwargs):
+		super(PartyInvitationFormAlternative, self).__init__(*args, **kwargs)
+		self.helper = FormHelper()
+		self.helper.form_id = 'id-exampleForm'
+		self.helper.form_class = 'blueForms'
+		self.helper.form_method = 'post'
+		self.helper.add_input(Submit('submit_invitation', 'Send Inivtation'))

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from foll.forms import PartyForm, FoodForm, UserSignUpForm, LoginForm, PartyInvitationForm
+from foll.forms import PartyForm, FoodForm, UserSignUpForm, LoginForm, PartyInvitationForm, PartyInvitationFormAlternative
 from foll.models import Party, Food, FoodRating, UserInParty, TopRatedFood
 from django.template import RequestContext
 from django.core.urlresolvers import reverse

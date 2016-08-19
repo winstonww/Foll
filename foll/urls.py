@@ -5,7 +5,7 @@ from rest_framework import renderers
 from django.conf.urls import url, include
 from rest_framework import routers
 
-from foll.views import UserAutoComplete
+# from foll.views import UserAutoComplete
 
 # router = routers.DefaultRouter()
 # router.register(r'process_food_rating', FoodRatingAPIViewSet, base_name='process_food_rating')
@@ -23,5 +23,5 @@ urlpatterns = [
 
 		# url(r'^api/', include(router.urls, namespace='api')),
 		url(r'^api/process_food_rating/$', views.process_food_rating, name = 'process_food_rating'),
-		url(r'^invitation-form-autocomplete/$', UserAutoComplete.as_view() , name='invitation-form-autocomplete'),
+		# url(r'^invitation-form-autocomplete/$', UserAutoComplete.as_view() , name='invitation-form-autocomplete'),
 ]

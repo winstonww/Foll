@@ -123,9 +123,7 @@ class PartyInvitationFormAlternative(ModelForm):
 	class Meta:
 		model = UserData
 		fields = ['facebook_name']
-		# widgets = {
-  #           'facebook_name': autocomplete.ModelSelect2(url='invitation-form-autocomplete')
-  #       }
+		widgets = {'facebook_name': autocomplete.ModelSelect2(url='invitation-form-autocomplete')}
 
 	def __init__(self, *args, **kwargs):
 		super(PartyInvitationFormAlternative, self).__init__(*args, **kwargs)

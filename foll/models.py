@@ -77,9 +77,9 @@ class TopRatedFood(models.Model):
 
 # to get around the fact the facebook
 class UserData(models.Model):
-	facebook_name = CharField(max_length = 50)
-	local_django_id = IntegerField()
-	facebook_id = IntegerField()
+	facebook_name = models.CharField(max_length = 50)
+	local_django_id = models.IntegerField()
+	facebook_id = models.IntegerField()
 
 
 

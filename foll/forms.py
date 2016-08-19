@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.db import models
-from foll.models import Food, Party, UserInParty
+from foll.models import Food, Party, UserInParty, UserData
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django import forms

@@ -38,6 +38,24 @@ def index(request):
 		# return redirect("signup")
 		return HttpResponse("damnnn doug")
 	context_instance = RequestContext(request)
+
+	User = get_user_model()
+	new_user_data = User.objects.all().filter(id = request.user.id)
+	try:
+		graph = require_facebook_graph(request)
+	except:
+		logout(request)
+		return redirect("signup")
+
+	my_info = graph.get('me')
+
+	# if new_user_data == None:
+	# 	new_user = UserData.objects.create()
+	# 	new_user.local_django_id = request.user.id
+	# 	new_user.facebook_id = my_info['id']
+	# 	new_user.facebook_name = my_info['name']
+	# 	new_user.save()
+
 	if (request.method == 'POST') and 'submit_party' in request.POST:
 		party_form = PartyForm(request.POST)
 		if party_form.is_valid():
@@ -64,17 +82,11 @@ def index(request):
 
 	#retrieve info from facebook
 	# graph = OpenFacebook(access_token)
-	try:
-		graph = require_facebook_graph(request)
-	except:
-		logout(request)
-		return redirect("signup")
+	
 
-	my_info = graph.get('me')
 	converter = FacebookUserConverter(graph)
-	# my_friends = converter.get_friends()
-	User = get_user_model()
-	my_friends = User.objects.all()
+	my_friends = converter.get_friends()
+	# my_friends = User.objects.all()
 
 
 	my_party = UserInParty.objects.all().filter(user = request.user, invitation_accepted = 1)
@@ -138,7 +150,7 @@ def party_details(request, party_id):
 
 	if (request.method == 'POST') and 'submit_food' in request.POST:
 		food_form = FoodForm(request.POST)
-		invitation_form = PartyInvitationForm()
+		invitation_form = PartyInvitationFormAlternative()
 		food_form.helper.form_action = reverse('party_details', args= [party_id])
 		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 		if food_form.is_valid():
@@ -153,12 +165,18 @@ def party_details(request, party_id):
 			new_food_in_party.save()
 
 	elif (request.method == 'POST') and 'submit_invitation' in request.POST:
-		invitation_form = PartyInvitationForm(request.POST)
+		invitation_form = PartyInvitationFormAlternative(request.POST)
 		food_form = FoodForm()
 		food_form.helper.form_action = reverse('party_details', args= [party_id])
 		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 		if invitation_form.is_valid():
-			new_invitation = invitation_form.save(commit = False)
+
+			raw_data = invitation_form.save(commit = False)
+			new_invitation_user_data = UserData.objects.get(facebook_name = raw_data.faceook_name)
+
+			new_invitation = UserInParty.objects.create()
+			User = get_user_model()
+			new_invitation.user = User.objects.get( id = new_invitation_user_data.local_django_id)
 			new_invitation.invited_by = request.user
 			new_invitation.party = Party.objects.get(pk = party_id)
 			new_invitation.invitation_accepted = 0
@@ -170,7 +188,7 @@ def party_details(request, party_id):
 	else:
 		food_form = FoodForm()
 		food_form.helper.form_action = reverse('party_details', args= [party_id]) # which view function to be redirected to
-		invitation_form = PartyInvitationForm()
+		invitation_form = PartyInvitationFormAlternative()
 		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 
 	this_party = Party.objects.get(pk = party_id)

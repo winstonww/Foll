@@ -75,6 +75,13 @@ class TopRatedFood(models.Model):
 	top_rated_food_id = models.IntegerField(default = 0)
 
 
+# to get around the fact the facebook
+class UserData(models.Model):
+	facebook_name = CharField(max_length = 50)
+	local_id = IntegerField()
+	facebook_id = IntegerField()
+	
+
 
 
 

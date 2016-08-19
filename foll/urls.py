@@ -5,7 +5,7 @@ from rest_framework import renderers
 from django.conf.urls import url, include
 from rest_framework import routers
 
-from foll.views import CountryAutocomplete
+from foll.views import UserAutoComplete
 
 # router = routers.DefaultRouter()
 # router.register(r'process_food_rating', FoodRatingAPIViewSet, base_name='process_food_rating')

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from foll.forms import PartyForm, FoodForm, UserSignUpForm, LoginForm, PartyInvitationForm, PartyInvitationFormAlternative
-from foll.models import Party, Food, FoodRating, UserInParty, TopRatedFood
+from foll.models import Party, Food, FoodRating, UserInParty, TopRatedFood, UserData
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
@@ -40,7 +40,7 @@ def index(request):
 	context_instance = RequestContext(request)
 
 	User = get_user_model()
-	new_user_data = User.objects.all().filter(id = request.user.id)
+	new_user_data = UserData.objects.all().filter(id = request.user.id)
 	try:
 		graph = require_facebook_graph(request)
 	except:

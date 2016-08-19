@@ -42,6 +42,8 @@ def index(request):
 	User = get_user_model()
 	new_user_data = UserData.objects.all().filter(id = request.user.id)
 	# graph = require_facebook_graph(request)
+	access_token = get_app_access_token()
+	FacebookAuthorization.extend_access_token(access_token)
 	try:
 		graph = require_facebook_graph(request)
 	except:

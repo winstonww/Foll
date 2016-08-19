@@ -3,7 +3,7 @@ from foll.models import Food, Party, FoodRating, UserInParty, User, TopRatedFood
 # Register your models here.
 
 class UserDataAdmin(admin.ModelAdmin):
-    list_display ['facebook_name', 'local_django_id', 'facebook_id']
+    list_display = ['facebook_name', 'local_django_id', 'facebook_id']
 
 admin.site.register(UserData, UserDataAdmin)
 

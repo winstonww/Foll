@@ -420,7 +420,7 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 		# 	else:
 		# 		my_friends_facebook_id.append(friend["id"])
 		# users = User.objects.all().filter(facebook_id__in = my_friends_facebook_id)
-		users = User.objects.all()
+		users = UserData.objects.all()
 		return users
 
 

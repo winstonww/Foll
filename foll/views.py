@@ -27,7 +27,7 @@ from foll.utils import find_average_rating, TopFood
 
 #django_facebook
 from open_facebook import OpenFacebook
-from django_facebook.api import require_facebook_graph, FacebookUserConverter
+from django_facebook.api import require_facebook_graph, FacebookUserConverter, FacebookAuthorization
 from django.contrib.auth import get_user_model
 
 #autocomplete
@@ -42,14 +42,15 @@ def index(request):
 
 	User = get_user_model()
 	new_user_data = UserData.objects.all().filter(local_django_id = request.user.id)
-	graph = require_facebook_graph(request)
-	# try:
-	# 	graph = require_facebook_graph(request)
-	# except:
-
-	# 	logout(request)
-	# 	# return HttpResponse("omg")
-	# 	return redirect("signup")
+	FacebookAuthorization.extend_access_token(FacebookAuthorization.get_app_access_token())
+	try:
+		graph = require_facebook_graph(request)
+	except:
+		FacebookAuthorization.extend_access_token(FacebookAuthorization.get_app_access_token())
+		
+		logout(request)
+		# return HttpResponse("omg")
+		return redirect("signup")
 
 	my_info = graph.get('me')
 

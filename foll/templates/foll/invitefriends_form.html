@@ -13,23 +13,6 @@
          {% crispy invitation_form invitation_form.helper %}
           <h5> friend's not on the list? Invite your friends to sign up through facebook.</h5>
           {% include 'foll/facebook_invite.html' %}
-
-            function send_wall_invitation(response) {
-               // alert(response.to);
-                var send_invitation_url=base_url+'send_invitation';
-                jQuery.ajax({
-                    url:send_invitation_url,
-                    data:{
-                        to:response.to
-                        },
-                    dataType:"json",
-                    type: 'POST',
-                    success: function(data){
-            //            alert("");
-                    }
-                })
-            }
-
           </script>
         </div>
         <div class="modal-footer">

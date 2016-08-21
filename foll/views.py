@@ -42,13 +42,14 @@ def index(request):
 
 	User = get_user_model()
 	new_user_data = UserData.objects.all().filter(local_django_id = request.user.id)
-	# graph = require_facebook_graph(request)
-	try:
-		graph = require_facebook_graph(request)
-	except:
-		logout(request)
-		# return HttpResponse("omg")
-		return redirect("signup")
+	graph = require_facebook_graph(request)
+	# try:
+	# 	graph = require_facebook_graph(request)
+	# except:
+
+	# 	logout(request)
+	# 	# return HttpResponse("omg")
+	# 	return redirect("signup")
 
 	my_info = graph.get('me')
 

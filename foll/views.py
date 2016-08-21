@@ -191,7 +191,8 @@ def party_details(request, party_id):
 	else:
 		food_form = FoodForm()
 		food_form.helper.form_action = reverse('party_details', args= [party_id]) # which view function to be redirected to
-		invitation_form = PartyInvitationFormAlternative()
+		# invitation_form = PartyInvitationFormAlternative()
+		invitation_form = PartyInvitationForm()
 		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 
 	this_party = Party.objects.get(pk = party_id)
@@ -407,9 +408,8 @@ def process_food_rating(request):
 
 class UserAutoComplete(autocomplete.Select2QuerySetView):
 	def get_queryset(self):
-		return []
-		# if not self.request.user.is_authenticated():
-		# 	return
+		if not self.request.user.is_authenticated():
+			return
 		# User = get_user_model()
 		# my_info = graph.get('me')
 		# converter = FacebookUserConverter(graph)

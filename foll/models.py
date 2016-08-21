@@ -50,7 +50,7 @@ class UserInParty(models.Model):
 	invitation_accepted = models.IntegerField(default = 0)
 	date_accepted = models.DateTimeField(auto_now= True, blank=True)
 	invitation_id = models.AutoField(primary_key=True)
-	user_data = models.ForeignKey(UserData)
+	user_data = models.ForeignKey(UserData, default = 0)
 
 	def __str__(self):
    		return  self.user.username + " invited " + self.invited_by.username + " to join "+ self.party.name

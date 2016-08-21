@@ -427,7 +427,7 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 
 def facebook_redirect(request):
 	return HttpResponse("testing")
-	return redirect("index")
+	# return redirect("index")
 
 # retreive data from form
 #1. food_form.save(commit = False)

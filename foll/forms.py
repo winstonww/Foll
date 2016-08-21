@@ -120,7 +120,7 @@ class PartyInvitationFormAlternative(ModelForm):
 
 	user_data = forms.ModelChoiceField(
 		queryset = UserData.objects.all(),
-		widget=autocomplete.ModelSelect2(url='country-autocomplete')
+		widget=autocomplete.ModelSelect2(url='invitation-form-autocomplete')
 	)
 	class Meta:
 		model = UserInParty

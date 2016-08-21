@@ -407,8 +407,8 @@ def process_food_rating(request):
 
 class UserAutoComplete(autocomplete.Select2QuerySetView):
 	def get_queryset(self):
-		if not self.request.user.is_authenticated():
-			return
+		# if not self.request.user.is_authenticated():
+		# 	return
 		# User = get_user_model()
 		# my_info = graph.get('me')
 		# converter = FacebookUserConverter(graph)

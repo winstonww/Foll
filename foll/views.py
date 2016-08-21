@@ -41,7 +41,7 @@ def index(request):
 	context_instance = RequestContext(request)
 
 	User = get_user_model()
-	new_user_data = UserData.objects.all().filter(id = request.user.id)
+	new_user_data = UserData.objects.all().filter(local_django_id = request.user.id)
 	graph = require_facebook_graph(request)
 	# try:
 	# 	graph = require_facebook_graph(request)

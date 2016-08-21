@@ -36,7 +36,7 @@ from dal import autocomplete
 
 
 def index(request):
-	if request.user.is_authenticated() == False:
+	if not request.user.is_authenticated():
 		return redirect("signup")
 		# return HttpResponse("damnnn doug")
 	context_instance = RequestContext(request)

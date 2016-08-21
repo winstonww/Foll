@@ -118,13 +118,12 @@ class PartyInvitationForm(ModelForm):
 
 class PartyInvitationFormAlternative(ModelForm):
 
-	user_data = forms.ModelChoiceField(
-		queryset = UserData.objects.all(),
-		widget=autocomplete.ModelSelect2(url='invitation-form-autocomplete')
-	)
 	class Meta:
 		model = UserInParty
 		fields = ['user_data']
+		widgets = {
+		'user_data': autocomplete.ModelSelect2(url='invitation-form-autocomplete')
+		}
 
 	def __init__(self, *args, **kwargs):
 		super(PartyInvitationFormAlternative, self).__init__(*args, **kwargs)

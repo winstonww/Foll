@@ -41,6 +41,7 @@ class UserInParty(models.Model):
 	invitation_accepted = models.IntegerField(default = 0)
 	date_accepted = models.DateTimeField(auto_now= True, blank=True)
 	invitation_id = models.AutoField(primary_key=True)
+	user_data = models.ForeignKey(UserData)
 
 	def __str__(self):
    		return  self.user.username + " invited " + self.invited_by.username + " to join "+ self.party.name
@@ -80,7 +81,8 @@ class UserData(models.Model):
 	facebook_name = models.CharField(max_length = 50)
 	local_django_id = models.IntegerField()
 	facebook_id = models.IntegerField()
-
+	def __str__(self):
+	   return self.facebook_name
 
 
 

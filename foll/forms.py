@@ -106,9 +106,6 @@ class PartyInvitationForm(ModelForm):
 	class Meta:
 		model = UserInParty
 		fields = ['user', 'invite_message']
-		# widgets = {
-		# 	'user': autocomplete.ModelSelect2(url = 'user-autocomplete')
-		# }
 
 
 	def __init__(self, *args, **kwargs):
@@ -120,10 +117,15 @@ class PartyInvitationForm(ModelForm):
 		self.helper.add_input(Submit('submit_invitation', 'Send Inivtation'))
 
 class PartyInvitationFormAlternative(ModelForm):
+
+		user_data = forms.ModelChoiceField(
+			queryset = UserData.objects.all(),
+			widget=autocomplete.ModelSelect2(url='country-autocomplete')
+		)
+
 	class Meta:
-		model = UserData
-		fields = ['facebook_name']
-		widgets = {'facebook_name': autocomplete.ModelSelect2(url='invitation-form-autocomplete')}
+		model = UserInParty
+		fields = ['user_data']
 
 	def __init__(self, *args, **kwargs):
 		super(PartyInvitationFormAlternative, self).__init__(*args, **kwargs)

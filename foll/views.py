@@ -191,8 +191,7 @@ def party_details(request, party_id):
 	else:
 		food_form = FoodForm()
 		food_form.helper.form_action = reverse('party_details', args= [party_id]) # which view function to be redirected to
-		# invitation_form = PartyInvitationFormAlternative()
-		invitation_form = PartyInvitationForm()
+		invitation_form = PartyInvitationFormAlternative()
 		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 
 	this_party = Party.objects.get(pk = party_id)

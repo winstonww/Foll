@@ -53,7 +53,7 @@ def index(request):
 	my_info = graph.get('me')
 
 	if not new_user_data:
-		new_user = UserData.objects.create()
+		new_user = UserData()
 		new_user.local_django_id = request.user.id
 		new_user.facebook_id = my_info['id']
 		new_user.facebook_name = my_info['name']

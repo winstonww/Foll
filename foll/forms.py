@@ -131,4 +131,9 @@ class PartyInvitationFormAlternative(ModelForm):
 		self.helper.form_id = 'id-exampleForm'
 		self.helper.form_class = 'blueForms'
 		self.helper.form_method = 'post'
+		self.helper.layout = Layout(
+						Div(
+						  Field('user_data', title="Friend's Name"),
+				 	    )
+					)
 		self.helper.add_input(Submit('submit_invitation', 'Send Inivtation'))

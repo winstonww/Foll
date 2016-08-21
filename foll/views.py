@@ -426,7 +426,7 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 		return users
 
 def facebook_redirect(request):
-	return HttpResponse("testing")
+	return render(request, 'foll/facebook_redirect.html', context)
 	# return redirect("index")
 
 # retreive data from form

@@ -24,5 +24,5 @@ urlpatterns = [
 		# url(r'^api/', include(router.urls, namespace='api')),
 		url(r'^api/process_food_rating/$', views.process_food_rating, name = 'process_food_rating'),
 		url(r'^invitation-form-autocomplete/$', UserAutoComplete.as_view() , name='invitation-form-autocomplete'),
-		url(r'^?fb/', views.facebook_redirect, name = 'facebook_redirect'),
+		# url(r'^?fb/', views.facebook_redirect, name = 'facebook_redirect'),
 ]

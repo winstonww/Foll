@@ -407,6 +407,7 @@ def process_food_rating(request):
 
 class UserAutoComplete(autocomplete.Select2QuerySetView):
 	def get_queryset(self):
+		return []
 		# if not self.request.user.is_authenticated():
 		# 	return
 		# User = get_user_model()

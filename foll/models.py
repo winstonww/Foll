@@ -38,7 +38,7 @@ class UserData(models.Model):
 	local_django_id = models.IntegerField()
 	facebook_id = models.IntegerField()
 	def __str__(self):
-	   return self.facebook_name + " , facebook ID: " + self. facebook_id 
+	   return self.facebook_name
 
 
 class UserInParty(models.Model):

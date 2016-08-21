@@ -50,7 +50,7 @@ def index(request):
 	if signed_request_string:
 		signed_data = parse_signed_request(signed_request_string)
 	if signed_data and 'oauth_token' in signed_data:
-    	access_token = signed_data['oauth_token']
+		access_token = signed_data['oauth_token']
 
 	FacebookAuthorization.extend_access_token(access_token)
 	try:

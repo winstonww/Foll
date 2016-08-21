@@ -32,6 +32,15 @@ class Party(models.Model):
 # 	date_of_friendship = DateField()
 # 	desc = models.CharField(maxlength = 200) #A brief description 
 
+# to get around the fact the facebook
+class UserData(models.Model):
+	facebook_name = models.CharField(max_length = 50)
+	local_django_id = models.IntegerField()
+	facebook_id = models.IntegerField()
+	def __str__(self):
+	   return self.facebook_name
+
+
 class UserInParty(models.Model):
 	#no pk
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name = "user")
@@ -76,13 +85,7 @@ class TopRatedFood(models.Model):
 	top_rated_food_id = models.IntegerField(default = 0)
 
 
-# to get around the fact the facebook
-class UserData(models.Model):
-	facebook_name = models.CharField(max_length = 50)
-	local_django_id = models.IntegerField()
-	facebook_id = models.IntegerField()
-	def __str__(self):
-	   return self.facebook_name
+
 
 
 

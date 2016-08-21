@@ -42,12 +42,11 @@ def index(request):
 	context_instance = RequestContext(request)
 
 	User = get_user_model()
-	new_user_data = UserData.objects.all().filter(local_django_id = request.user.id).extend_access_token(FacebookAuthorization.get_app_access_token())
+	new_user_data = UserData.objects.all().filter(local_django_id = request.user.id)
 	try:
 		graph = require_facebook_graph(request)
 	except:
 		FacebookAuthorization.extend_access_token(FacebookAuthorization.get_app_access_token())
-
 		logout(request)
 		# return HttpResponse("omg")
 		return redirect("signup")

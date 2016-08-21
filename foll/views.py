@@ -44,14 +44,6 @@ def index(request):
 	User = get_user_model()
 	new_user_data = UserData.objects.all().filter(local_django_id = request.user.id)
 
-	signed_data = None
-	access_token = None
-	signed_request_string = request.POST.get('signed_data',request.GET.get('signed_data'))
-	if signed_request_string:
-		signed_data = parse_signed_request(signed_request_string)
-	if signed_data and 'oauth_token' in signed_data:
-		access_token = signed_data['oauth_token']
-
 	FacebookAuthorization.extend_access_token(access_token)
 	try:
 		graph = require_facebook_graph(request)

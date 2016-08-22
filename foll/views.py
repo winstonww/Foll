@@ -177,7 +177,8 @@ def party_details(request, party_id):
 		if invitation_form.is_valid():
 
 			raw_data = invitation_form.save(commit = False)
-			new_invitation_user_data = UserData.objects.get(facebook_name = raw_data.faceook_name)
+			raw_user_data = raw_data.user_data
+			new_invitation_user_data = UserData.objects.get(facebook_name = raw_user_data.faceook_name)
 
 			new_invitation = UserInParty()
 			User = get_user_model()

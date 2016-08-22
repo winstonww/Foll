@@ -409,20 +409,19 @@ def process_food_rating(request):
 
 class UserAutoComplete(autocomplete.Select2QuerySetView):
 	def get_queryset(self):
-		# if not self.request.user.is_authenticated():
-		# 	return
-		# User = get_user_model()
-		# my_info = graph.get('me')
-		# converter = FacebookUserConverter(graph)
-		# my_friends = converter.get_friends()
-		# my_friends_facebook_id = []
-		# for friend in my_Friends:
-		# 	if friend["id"] == None:
-		# 		continue
-		# 	else:
-		# 		my_friends_facebook_id.append(friend["id"])
-		# users = User.objects.all().filter(facebook_id__in = my_friends_facebook_id)
-		users = UserData.objects.all()
+		if not self.request.user.is_authenticated():
+			return
+		my_info = graph.get('me')
+		converter = FacebookUserConverter(graph)
+		my_friends = converter.get_friends()
+		my_friends_facebook_id = []
+		for friend in my_Friends:
+			if not friend["id"]:
+				continue
+			else:
+				my_friends_facebook_id.append(friend["id"])
+
+		users = UserData.objects.all().filter(facebook_id__in = my_friends_facebook_id)
 		return users
 
 def facebook_redirect(request):

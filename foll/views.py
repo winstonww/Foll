@@ -410,12 +410,12 @@ def process_food_rating(request):
 class UserAutoComplete(autocomplete.Select2QuerySetView):
 	def get_queryset(self):
 		if not self.request.user.is_authenticated():
-			return
+			return UserData.objects.none()
 		try:
 			graph = require_facebook_graph(self.request)
 		except:
 			logout(self.request)
-			return
+			return UserData.objects.none()
 
 		my_info = graph.get('me')
 		converter = FacebookUserConverter(graph)

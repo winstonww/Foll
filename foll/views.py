@@ -415,7 +415,7 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 			graph = require_facebook_graph(self.request)
 		except:
 			logout(self.request)
-			return redirect("signup")
+			return
 
 		my_info = graph.get('me')
 		converter = FacebookUserConverter(graph)

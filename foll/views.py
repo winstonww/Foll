@@ -421,14 +421,13 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 		converter = FacebookUserConverter(graph)
 		my_friends = converter.get_friends()
 		my_friends_facebook_id = []
-		for friend in my_Friends:
+		for friend in my_friends:
 			if not friend["id"]:
 				continue
 			else:
 				my_friends_facebook_id.append(friend["id"])
 
 		users = UserData.objects.all().filter(facebook_id__in = my_friends_facebook_id)
-		users = UserData.objects.all()
 		return users
 
 def facebook_redirect(request):

@@ -176,13 +176,10 @@ def party_details(request, party_id):
 		invitation_form.helper.form_action = reverse('party_details', args= [party_id])
 		if invitation_form.is_valid():
 
-			raw_data = invitation_form.save(commit = False)
-			raw_user_data = raw_data.user_data
-			new_invitation_user_data = UserData.objects.get(facebook_name = raw_user_data.facebook_name)
-
-			new_invitation = UserInParty()
 			User = get_user_model()
-			new_invitation.user = User.objects.get( id = new_invitation_user_data.local_django_id)
+			new_invitation = invitation_form.save(commit = False)
+			raw_user_data = new_invitation.user_data
+			new_invitation.user = User.objects.get( id = raw_user_data.local_django_id)
 			new_invitation.invited_by = request.user
 			new_invitation.party = Party.objects.get(pk = party_id)
 			new_invitation.invitation_accepted = 0

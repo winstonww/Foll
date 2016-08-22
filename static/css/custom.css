@@ -140,6 +140,6 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 	height: 100%;
 }
 #menu-toggle:hover{
-	color: #FFD12A;
+	background-color: #FFD12A;
 }
 

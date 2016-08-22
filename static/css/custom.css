@@ -135,11 +135,11 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     color: white;
 }
 
-#menu-toggle{
+#menu-button{
 	position: relative;
 	height: 100%;
 }
-#menu-toggle:hover{
-	background-color: #FFD12A;
+.menu-button:hover{
+	background-color: #ffd12a;
 }
 

@@ -179,7 +179,7 @@ def party_details(request, party_id):
 			raw_data = invitation_form.save(commit = False)
 			new_invitation_user_data = UserData.objects.get(facebook_name = raw_data.faceook_name)
 
-			new_invitation = UserInParty.objects.create()
+			new_invitation = UserInParty()
 			User = get_user_model()
 			new_invitation.user = User.objects.get( id = new_invitation_user_data.local_django_id)
 			new_invitation.invited_by = request.user

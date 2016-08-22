@@ -33,20 +33,22 @@
 	<div class = "row">
 		<div class = "col-lg-4">
 		<div id = "friends_in_party_panel">
+
+
 			<div class="panel panel-default panel-table" style = "height:300px;">
-		 		<div class="panel-heading">
-		 			<div class = 'row'>
-			 			<div class = 'col-md-9'>
-			  			<h3 class="panel-title">Friends in Party</h3>
-			  			</div>
-			  			<div class = 'col-md-2'>
-			  			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#inivitefriendsform_modal">
-			 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-			 			</button>
+		 		<div class="panel-heading clearfix">
+		 			
+			  			<h3 class="panel-title pull-left" style ="padding-top:5px;">Friends in Party</h3>
+
+			  			<div class="btn-group pull-right">
+				  			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#inivitefriendsform_modal">
+				 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				 			</button>
+				 			{% include 'foll/invitefriends_form.html' %}
 			 			</div>
-			 			{% include 'foll/invitefriends_form.html' %}
-		 			</div>
-		  		</div>
+			 			
+		 		</div>
+
 
 
 		  		<div class="panel-body">

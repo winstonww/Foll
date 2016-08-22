@@ -411,6 +411,12 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 	def get_queryset(self):
 		if not self.request.user.is_authenticated():
 			return
+		try:
+			graph = require_facebook_graph(request)
+		except:
+			logout(request)
+			return redirect("signup")
+
 		my_info = graph.get('me')
 		converter = FacebookUserConverter(graph)
 		my_friends = converter.get_friends()

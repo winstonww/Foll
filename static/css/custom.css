@@ -132,6 +132,7 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 
 .fa-navicon:before, .fa-reorder:before, .fa-bars:before {
     content: "\f0c9";
+    color: white;
 }
 
 #menu-toggle{
@@ -142,6 +143,3 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 	color: #FFD12A;
 }
 
-.fa-bars{
-	color: white;
-}

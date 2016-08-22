@@ -412,9 +412,9 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 		if not self.request.user.is_authenticated():
 			return
 		try:
-			graph = require_facebook_graph(request)
+			graph = require_facebook_graph(self.request)
 		except:
-			logout(request)
+			logout(self.request)
 			return redirect("signup")
 
 		my_info = graph.get('me')

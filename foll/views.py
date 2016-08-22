@@ -428,6 +428,7 @@ class UserAutoComplete(autocomplete.Select2QuerySetView):
 				my_friends_facebook_id.append(friend["id"])
 
 		users = UserData.objects.all().filter(facebook_id__in = my_friends_facebook_id)
+		users = UserData.objects.all()
 		return users
 
 def facebook_redirect(request):

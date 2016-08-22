@@ -129,3 +129,12 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 .logout_button a:hover{
 	color : #e59400;
 }
+
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    content: "\f0c9";
+}
+
+#menu-toggle{
+	position: relative;
+	height: 100%;
+}

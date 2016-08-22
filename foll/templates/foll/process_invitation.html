@@ -42,7 +42,8 @@
 
 					$invitation_message.append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' aria-label='Close' id = 'invitation_message_close_button'><span aria-hidden='true'>&times;</span></button> You have accepted {{invitation.invited_by.username}}'s invitation</div>" );
 
-					alert("{{ invitation.invited_by.username }} is user!");
+					alert("{{ invitation.invited_by.username }} invited you!");
+					location.reload();
 
 				});
 

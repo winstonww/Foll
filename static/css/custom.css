@@ -135,14 +135,8 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     color: white;
 }
 
-#menu-toggle{
-	position: relative;
-	height: 100%;
-	width: 100%;
-}
-#menu-toggle:hover{
-	background-color: #ffd12a;
-}
+
+
 
 @media (min-width: 768px)
 #main-navbar{
@@ -166,6 +160,10 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     overflow: hidden;
     width: 56px;
     z-index: 1034;
+}
+
+#menu-toggle:hover{
+	background-color: #ffd12a;
 }
 
 #main-navbar .navbar-inner {

@@ -144,3 +144,33 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 	background-color: #ffd12a;
 }
 
+@media (min-width: 768px)
+#main-navbar{
+    overflow: visible!important;
+}
+
+#main-navbar {
+    border: none;
+    border-radius: 0;
+    left: 0;
+    min-height: 46px;
+    right: 0;
+    position: absolute;
+    top: 0!important;
+    z-index: 1030;
+}
+
+#main-navbar #menu-toggle {
+    height: 46px;
+    left: 0;
+    overflow: hidden;
+    width: 56px;
+    z-index: 1034;
+}
+
+#main-navbar .navbar-inner {
+    min-height: 46px;
+    width: 100%;
+    position: relative;
+    left: 0;
+}

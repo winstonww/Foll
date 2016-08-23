@@ -174,3 +174,6 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     position: relative;
     left: 0;
 }
+div{
+	display: block;
+}

@@ -160,6 +160,16 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     overflow: hidden;
     width: 56px;
     z-index: 1034;
+
+    border: none;
+    display: block;
+    font-size: 11px;
+    margin: 0;
+    outline: 0!important;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    top: 0!important;
 }
 
 #menu-toggle:hover{

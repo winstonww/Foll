@@ -2,6 +2,8 @@
 	color:green;
 }
 
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
@@ -31,8 +33,9 @@ input::-webkit-inner-spin-button {
 * {
     font-family: 'Overlock';
  }
-
-
+div{
+	display: block;
+}
 
 #partyform label {
 	font-weight:100;
@@ -149,7 +152,7 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     left: 0;
     min-height: 46px;
     right: 0;
-    position: absolute;
+    position: fixed!important;
     top: 0!important;
     z-index: 1030;
 }
@@ -191,6 +194,10 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     height: auto!important;
     padding: 0 0 0 0px;
 }
-div{
-	display: block;
+
+
+#main-navbar li a {
+    line-height: 42px;
+    padding-top: 0;
+    padding-bottom: 0; 
 }

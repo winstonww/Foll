@@ -20,8 +20,8 @@
 .signup_wrapper h2  {
   /*webkit makes transition smooth*/
     text-align: center;
-    font-size: 3em;
-    color: black;
+    font-size: 2em;
+    color: grey;
 }
 
 .signup_form_container{

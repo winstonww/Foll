@@ -193,11 +193,11 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 @media (min-width: 768px){
 	#main-navbar .navbar-header {
 	    padding-left: 56px!important;
-	    width: 240px;
+	    width: 150px;
 	}
 }
 #main-navbar .navbar-header {
-    padding-left: 56px;
+    padding-left: 65px;
 }
 
 .logout_button{

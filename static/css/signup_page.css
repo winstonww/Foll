@@ -13,14 +13,14 @@
   /*webkit makes transition smooth*/
     text-align: center;
     font-family: 'Indie Flower';
-    font-size: 4em;
-    color: orange;
+    font-size: 5em;
+    color: #EE7600;
 }
 
-.signup_wrapper h3  {
+.signup_wrapper h2  {
   /*webkit makes transition smooth*/
     text-align: center;
-    font-size: 1em;
+    font-size: 2em;
     color: black;
 }
 

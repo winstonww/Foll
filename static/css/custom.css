@@ -121,29 +121,15 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 	height: 400px;
 	margin-left: 1.5%;
 }
-.logout_button{
-	margin-bottom: 0 !important;
-	line-height : 2.205 !important;
-	color: white;
-}
-.logout_button a {
-	color: white;
-}
-.logout_button a:hover{
-	color : #e59400;
-}
-
-.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
-    content: "\f0c9";
-    color: white;
-}
 
 
 
 
-@media (min-width: 768px)
-#main-navbar{
-    overflow: visible!important;
+/*custom navbar*/
+@media (min-width: 768px){
+	#main-navbar{
+	    overflow: visible!important;
+	}
 }
 
 #main-navbar {
@@ -200,4 +186,33 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     line-height: 42px;
     padding-top: 0;
     padding-bottom: 0; 
+    min-height: 46px;
+}
+
+
+@media (min-width: 768px){
+	#main-navbar .navbar-header {
+	    padding-left: 56px!important;
+	    width: 240px;
+	}
+}
+#main-navbar .navbar-header {
+    padding-left: 56px;
+}
+
+.logout_button{
+	margin-bottom: 0 !important;
+	line-height : 2.205 !important;
+	color: white;
+}
+.logout_button a {
+	color: white;
+}
+.logout_button a:hover{
+	color : #e59400;
+}
+
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    content: "\f0c9";
+    color: white;
 }

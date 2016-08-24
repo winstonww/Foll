@@ -193,7 +193,7 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 @media (min-width: 768px){
 	#main-navbar .navbar-header {
 	    padding-left: 65px!important;
-	    width: 120px;
+	    width: 140px;
 	}
 }
 #main-navbar .navbar-header {

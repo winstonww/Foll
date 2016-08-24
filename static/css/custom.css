@@ -155,7 +155,7 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 }
 
 #main-navbar #menu-toggle {
-	color: #ffd384;
+	background-color: #ffd384;
     height: 46px;
     left: 0;
     overflow: hidden;

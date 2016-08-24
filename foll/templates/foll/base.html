@@ -41,11 +41,11 @@ $("#menu-toggle").click( function (e){
 	<!-- basic template for a navbar, anchor tags are important -->
 	<div class = "navbar navbar-orange navbar-fixed-top" id = "main-navbar"> 
 
-
-			<button id="menu-toggle" ">
-				<i class="fa fa-bars"></i>
-			</button>
-
+			{% if request.user.is_authenticated %}
+				<button id="menu-toggle" ">
+					<i class="fa fa-bars"></i>
+				</button>
+			{% endif %}
 			<div class = "navbar-inner">
 			<!-- logo -->
 				<div class = "navbar-header">

@@ -155,6 +155,7 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 }
 
 #main-navbar #menu-toggle {
+	color: #ffd384;
     height: 46px;
     left: 0;
     overflow: hidden;
@@ -181,6 +182,14 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
     width: 100%;
     position: relative;
     left: 0;
+}
+
+#main-navbar .navbar-brand {
+    display: inline-block;
+    float: none;
+    line-height: 46px;
+    height: auto!important;
+    padding: 0 0 0 0px;
 }
 div{
 	display: block;

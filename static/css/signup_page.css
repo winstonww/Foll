@@ -15,7 +15,7 @@
     font-family: 'Indie Flower';
     font-size: 5em;
     color: #EE7600;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .signup_wrapper h2  {
@@ -23,6 +23,7 @@
     text-align: center;
     font-size: 2em;
     color: grey;
+    font-weight:300;
 }
 
 .signup_form_container{

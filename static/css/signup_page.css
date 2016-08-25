@@ -28,7 +28,7 @@
 
 
 .optimize_banner{
-  background: url("optimize_food.jpg") ;
+  background: url("optimize_food.jpg") no no-repeat;
   min-height: 600px;
   background-size: 100%;
 }
@@ -70,6 +70,12 @@
   background-color: rgba(200,200,200,0.5);
   padding:10%;
   border-radius: 4%;
+}
+.facebook_login_container{
+  width:400px;
+  height:100px;
+  margin: auto;
+  display: inline-block;
 }
 
 #submit-id-submit_singup{

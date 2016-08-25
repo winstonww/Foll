@@ -44,8 +44,8 @@
 		</div>
 		
 	</div>
-	<div class = "row">
-		<div class = "col-md-12" ">
+	<div class = "row" style = "margin:5%">
+
 <!-- 			{% if no_user_flag == True %}
 				<p style = "color: red;  text-align: center; ">Username/password does not exist. Try again. </p>
 			{% endif %}
@@ -53,11 +53,11 @@
 			<h5 style = "float:left; display:inline-block; margin-right: 3px; background-color: #d3d3d3; "> Already a user? Login here: </h5>
 			{% crispy user_login_form user_login_form.helper %}
 			</div> -->
-			<div class = "col-md-6" style = "text-align: right;">
+			<div class = "col-md-6" style = "text-align: right; line-height:2%;">
 				<p> Try out this app by: <p>
 			</div>
 			<!-- Django Facebook Login Button -->
-				<div class = "col-md-6">
+			<div class = "col-md-6">
 				<link href="{{ STATIC_URL }}django_facebook/css/facebook.css" type="text/css" rel="stylesheet" media="all" />
 				{% include 'django_facebook/_facebook_js.html' %}
 
@@ -69,10 +69,6 @@
 				    <input onclick="F.connect(this.parentNode); return false;" type="image" src="{{ STATIC_URL }}django_facebook/images/facebook_login.png" />
 				</form>
 			</div>
-
-		</div>
-	</div>
-
 </div>
 
 <script type="text/javascript">

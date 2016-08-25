@@ -67,6 +67,7 @@
   width:450px;
   height:275px;
   background: url("nicetray.png") no-repeat;
+  background-size: 450px 275px;
   bottom: 0;
   position: relative;
 }

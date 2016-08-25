@@ -5,12 +5,11 @@
     margin-top:5%;
     padding-left: 0;
     padding-top:2%;
-    margin-left:3%;
 }
 
 .share_banner{
   background: url("sharing_food.jpg") ;
-  min-height: 700px;
+  min-height: 600px;
   background-size: 100%;
 }
 .share_banner h3{
@@ -24,11 +23,11 @@
   text-align: left;
   color : white;
   font-size: 2.5em;
-  font-weight: 250 ;
+  font-weight: 100 ;
 }
 
-}
-.signup_wrapper h1  {
+
+.signup_wrapper h1{
   /*webkit makes transition smooth*/
     text-align: center;
     font-family: 'Indie Flower';

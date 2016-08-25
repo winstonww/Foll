@@ -10,6 +10,8 @@
 
 .share_banner{
   background: url("sharing_food.jpg") ;
+  min-height: 400px;
+  background-size: 100%;
 }
 .share_banner h2, p{
   text-align: left;

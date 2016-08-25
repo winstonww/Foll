@@ -27,6 +27,27 @@
 }
 
 
+.optimize_banner{
+  background: url("optimize_food.jpg") ;
+  min-height: 600px;
+  background-size: 100%;
+}
+.optimize_banner h3{
+  text-align: left;
+  color : white;
+  font-size: 4.5em;
+  font-weight: 500 ;
+}
+
+.optimize_banner h4{
+  text-align: left;
+  color : white;
+  font-size: 2em;
+  font-weight: 100 ;
+}
+
+
+
 .signup_wrapper h1{
   /*webkit makes transition smooth*/
     text-align: center;

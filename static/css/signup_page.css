@@ -72,9 +72,8 @@
   border-radius: 4%;
 }
 .facebook_login_container{
-  width:400px;
-  height:100px;
-  margin: auto;
+  width:50%
+  margin: 0 auto;
   display: inline-block;
 }
 

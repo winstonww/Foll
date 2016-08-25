@@ -8,7 +8,12 @@
     margin-left:3%;
 }
 
-
+.share_banner{
+  background: url("shareing_food.png") ;
+}
+.share_banner h2, p{
+  text-align: left;
+}
 .signup_wrapper h1  {
   /*webkit makes transition smooth*/
     text-align: center;

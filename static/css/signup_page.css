@@ -70,6 +70,13 @@
   bottom: 0;
   position: relative;
 }
+.hand::before{
+  width:450px;
+  height:275px;
+  content: url("nicetray.png");
+  bottom: 0;
+  position: relative;
+}
 
 .ball {
   display:inline-block;

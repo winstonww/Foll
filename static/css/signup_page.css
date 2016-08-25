@@ -10,11 +10,23 @@
 
 .share_banner{
   background: url("sharing_food.jpg") ;
-  min-height: 400px;
+  min-height: 700px;
   background-size: 100%;
 }
-.share_banner h2, p{
+.share_banner h2{
   text-align: left;
+  color : white;
+  font-size: 4.5em;
+  font-weight: 600 ;
+}
+
+.share_banner h3{
+  text-align: left;
+  color : white;
+  font-size: 2.5em;
+  font-weight: 400 ;
+}
+
 }
 .signup_wrapper h1  {
   /*webkit makes transition smooth*/

@@ -28,7 +28,7 @@
 
 
 .optimize_banner{
-  background: url("optimize_food.jpg") no no-repeat;
+  background: url("optimize_food.jpg") no-repeat;
   min-height: 600px;
   background-size: 100%;
 }

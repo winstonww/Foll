@@ -53,10 +53,11 @@
 			<h5 style = "float:left; display:inline-block; margin-right: 3px; background-color: #d3d3d3; "> Already a user? Login here: </h5>
 			{% crispy user_login_form user_login_form.helper %}
 			</div> -->
-
+			<div class = "col-md-6" style = "text-align: right;">
+				<p> Try out this app by: <p>
+			</div>
 			<!-- Django Facebook Login Button -->
-			<div class = "facebook_login_container";>
-				Try it out by
+				<div class = "col-md-6">
 				<link href="{{ STATIC_URL }}django_facebook/css/facebook.css" type="text/css" rel="stylesheet" media="all" />
 				{% include 'django_facebook/_facebook_js.html' %}
 

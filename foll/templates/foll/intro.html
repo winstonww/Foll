@@ -110,7 +110,7 @@
     						<div class = "panel panel-default">
 	                    		<div class="panel-heading">
 									<h3 class="panel-title"> Food to bring </h3>
-									<span class="badge pull-right">{{food_to_bring_length}}</span> 
+									<span class="badge pull-right">{{food_to_bring_num}}</span> 
 								</div>
 							
 
@@ -125,12 +125,17 @@
 							   				</thead>
 
 							  				<tbody>
+							  					{% if food_to_bring_num == 0 %}
+							  					<p>No food to bring.</p>
+							  					{% else %}
+
 							    				{% for food in food_to_bring %}
 							     				<tr>
 							       					<td> {{food.name}} </td>
 							       					<td>{{food.belong_to_party}}</td>
 							     				</tr>
 												{% endfor %}
+												{% endif %}
 							    			</tbody>
 							  			</table>
 									</div>

@@ -144,7 +144,7 @@
 										{% else %}
 										<p> <strong> New Food </strong> </p>
 										{% for food_news in food_newsfeed %}
-											<p> {{food_news.brought_by}} brought {{food_news.name}} to the party {{food_news.belong_to_party}} </p>
+											<p> {{food_news.brought_by_user_data}} brought {{food_news.name}} to the party {{food_news.belong_to_party}} </p>
 										{% endfor %}
 										{% endif %}
 										<hr>
@@ -155,7 +155,7 @@
 										{% else %}
 										<p> <strong> New Friends </strong> </p>
 										{% for friends_in_party_news in friends_in_party_newsfeed %}
-											<p> {{friends_in_party_news.user}} joined the party {{friends_in_party_news.party}} on  {{friends_in_party_news.date_accepted}} </p>
+											<p> {{friends_in_party_news.user_data}} joined the party {{friends_in_party_news.party}} on  {{friends_in_party_news.date_accepted}} </p>
 										{% endfor %}
 										{% endif %}
 										<hr>

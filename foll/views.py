@@ -115,6 +115,7 @@ def index(request):
 		food_newsfeed = food_newsfeed | party_food_newsfeed
 		party_friends_in_party_newsfeed = UserInParty.objects.all().filter(party = party, invitation_accepted = 1).order_by('-date_accepted')
 		friends_in_party_newsfeed = friends_in_party_newsfeed | party_friends_in_party_newsfeed
+		
 	food_newsfeed = food_newsfeed[:5]
 	friends_in_party_newsfeed = friends_in_party_newsfeed[:5]
 	food_newsfeed_num = len(food_newsfeed)
@@ -166,6 +167,7 @@ def party_details(request, party_id):
 		if food_form.is_valid():
 			new_food_info = food_form.save(commit = False)
 			new_food_info.brought_by = request.user
+			new_food_info.brought_by_user_data = UserData.objects.get(local_django_id = request.user.id)
 			new_food_info.belong_to_party = Party.objects.get(pk = party_id)
 			new_food_info.save()
 			new_food_in_party = FoodRating()

@@ -64,6 +64,7 @@ class Food(models.Model):
 	name = models.CharField(max_length = 30)
 	desc = models.CharField(max_length = 200, null=True, blank=True)
 	brought_by = models.ForeignKey(settings.AUTH_USER_MODEL, default = 1)
+	brought_by_user_data = mdoels.ForeignKey(UserData, default = 0)
 	belong_to_party = models.ForeignKey(Party, default = 1)
 	date_added = models.DateTimeField(auto_now_add= True, blank=True)
 	avg_rating = models.DecimalField(default = 0, decimal_places = 2, max_digits = 4)

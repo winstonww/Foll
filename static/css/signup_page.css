@@ -71,11 +71,7 @@
   padding:10%;
   border-radius: 4%;
 }
-.facebook_login_container{
-  width:50%;
-  margin: 0 auto;
-  display: inline-block;
-}
+
 
 #submit-id-submit_singup{
   background-color: orange !important;
@@ -143,7 +139,7 @@
       -moz-animation: bounce 1s ease-in-out;
       animation: bounce 1s ease-in-out;
       -webkit-animation-delay: 1.5s; /* Chrome, Safari, Opera */
-      animation-delay: 1.5s;
+      animation-delay: 1.75s;
       opacity: 0;
       animation-fill-mode :forwards;
     }
@@ -154,7 +150,7 @@
       -moz-animation: bounce 1s ease-in-out;
       animation: bounce 1s ease-in-out;
       -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
-      animation-delay: 2s;
+      animation-delay: 2.5s;
       opacity: 0;
       animation-fill-mode :forwards;
     }
@@ -165,7 +161,7 @@
       -moz-animation: bounce 1s ease-in-out;
       animation: bounce 1s  ease-in-out;
      -webkit-animation-delay: 2.5s; /* Chrome, Safari, Opera */
-      animation-delay: 2.5s;
+      animation-delay: 3.25s;
       opacity: 0;
       animation-fill-mode :forwards;
      }
@@ -176,7 +172,7 @@
       -moz-animation: bounce 1s ease-in-out;
       animation: bounce 1s ease-in-out;
       -webkit-animation-delay: 3s; /* Chrome, Safari, Opera */
-      animation-delay: 3s;
+      animation-delay: 4s;
       opacity: 0;
       animation-fill-mode :forwards;
     }

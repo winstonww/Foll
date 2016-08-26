@@ -22,8 +22,8 @@ class Party(models.Model):
 	max_budget = models.IntegerField()
 	# desc = models.CharField(max_length = 2000, default = "")
 	def __str__(self):
-		return "partyname: " + self.name + " , user id: " + str(self.id)
-
+		# return "partyname: " + self.name + " , user id: " + str(self.id)
+		return self.name
 # class Friends(models.Model):
 # 	#no pk
 # 	user1 = models.ForeignKey(User)

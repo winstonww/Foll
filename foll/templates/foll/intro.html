@@ -144,7 +144,7 @@
 										{% else %}
 										<p> <strong> New Food </strong> </p>
 										{% for food_news in food_newsfeed %}
-											<p> {{food_news.brought_by_user_data}} brought {{food_news.name}} to the party <a href="{% url 'party_details' ood_news.belong_to_party.id %}">{{{food_news.belong_to_party}}</a> </p>
+											<p> {{food_news.brought_by_user_data}} brought {{food_news.name}} to the party <a href="{% url 'party_details' food_news.belong_to_party.id %}">{{food_news.belong_to_party}}</a> </p>
 										{% endfor %}
 										{% endif %}
 										<hr>

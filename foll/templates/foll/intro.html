@@ -30,6 +30,190 @@
       				<h1> <strong> Welcome {{my_first_name}}! </strong></h1>
             	</div>
 
+
+
+
+            	<div class = "row">
+            		<div class = "col-md-12">
+    			        <div class="panel panel-default panel-table party_panel_body">
+
+					 		<div class="panel-heading">
+					  			<h3 class="panel-title">All Parties</h3>
+
+					  		</div>
+
+
+					  		<div class="panel-body party_panel_body">
+								<div class="container col-md-12 col-lg-12 col-sm-12 ">
+						 			<table class="table table-hover">
+						   				<thead>
+						     				<tr>
+						        				<th>Party</th>
+						        				<th>Time</th>
+						        				<th>Location</th>
+						     				</tr>
+						   				</thead>
+
+
+						  				<tbody>
+						    				{% for party in party_info %}
+						     				<tr>
+						       					<td><a href="{% url 'party_details' party.id %}"> {{party.name}} </a> </td>
+						       					<td>{{party.time}}</td>
+						     					<td>{{party.location}}</td>
+						     				</tr>
+											{% endfor %}
+						    			</tbody>
+						  			</table>
+								</div>
+							</div> 
+
+							 <div class="panel-footer clearfix">
+							 	<div class =  "btn-group pull-right">
+						 			<button type="button" class="btn btn-sm" data-toggle="modal" data-target="#partyform_modal">
+						 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+						 			Add Party
+						 			</button>
+				 					{% include 'foll/partyform.html' %}	
+							 	</div>
+							 </div>
+
+						</div>	
+            		</div>
+            	</div>
+
+
+
+            	<div class = "row">
+            		<div class = "col-md-6">
+            			<div class="panel panel-default invitation_panel">
+                    	 	<div class="panel-heading">
+                    	 	<div class= "row">
+                    	 		<div class = "col-xs-10">
+							    <h3 class="panel-title">Your Invitations </h3>
+							    </div>
+							   <div class="col-xs-2"><span class="badge pull-right">{{invitation_num}}</span> </div>
+
+							</div>
+							</div>
+
+
+		           			 <div  class="panel-body">
+		           			 {% include 'foll/process_invitation.html' %}
+
+							</div>
+						</div>
+    				</div>
+
+
+    				<div class = "col-md-6">
+    						<div class = "panel panel-default">
+	                    		<div class="panel-heading">
+									<h3 class="panel-title"> Food to bring </h3>
+									<span class="badge pull-right">{{food_to_bring_length}}</span> 
+								</div>
+							
+
+						  		<div class="panel-body party_panel_body">
+									<div class="container col-md-12 col-lg-12 col-sm-12 ">
+							 			<table class="table table-hover">
+							   				<thead>
+							     				<tr>
+							        				<th>Name</th>
+							        				<th>Party</th>
+							     				</tr>
+							   				</thead>
+
+							  				<tbody>
+							    				{% for food in food_to_bring %}
+							     				<tr>
+							       					<td> {{food.name}} </td>
+							       					<td>{{food.belong_to_party}}</td>
+							     				</tr>
+												{% endfor %}
+							    			</tbody>
+							  			</table>
+									</div>
+								</div> 
+							</div>
+    				</div>
+
+            	</div>
+
+
+
+            	<div class = "row">
+            		<div class = "col-md-12">
+            				<div class = "panel panel-default newsfeed_panel">
+	                    		<div class="panel-heading">
+		                    		<div class = "row">
+									   	<div class="col-xs-10"> <h3 class="panel-title">Your Newsfeed</h3> </div>
+									    <div class="col-xs-2"><span class="badge pull-right">{{food_newsfeed_num|add:members_newsfeed_num}}</span> </div>
+									</div>
+								</div>
+								<div class="panel-body">
+									<div class="text-center", style = "padding-top: 2px;">
+									  <ul class="pagination">
+									    <li>
+									      <a href="#" aria-label="Previous">
+									        <span aria-hidden="true">&laquo;</span>
+									      </a>
+									    </li>
+									    <li><a id = "food_newsfeed_button"> Food </a></li>
+									    <li><a id = "members_newsfeed_button"> Members</a></li>
+									    <li>
+									      <a href="#" aria-label="Next">
+									        <span aria-hidden="true">&raquo;</span>
+									      </a>
+									    </li>
+									  </ul>
+									</div>
+									<div id = "food_newsfeed">
+										{% if food_newsfeed_num == 0 %}
+											<p> No new food. </p>
+										{% else %}
+										<p> <strong> New Food </strong> </p>
+										{% for food_news in food_newsfeed %}
+											<p> {{food_news.brought_by_user_data}} brought {{food_news.name}} to the party <a href="{% url 'party_details' food_news.belong_to_party.id %}">{{food_news.belong_to_party}}</a> </p>
+										{% endfor %}
+										{% endif %}
+										<hr>
+									</div>
+									<div id = "members_newsfeed">
+										{% if friends_in_party_newsfeed_num == 0 %}
+											<p> No new members. </p>
+										{% else %}
+										<p> <strong> New Friends </strong> </p>
+										{% for friends_in_party_news in friends_in_party_newsfeed %}
+											<p> {{friends_in_party_news.user_data}} joined the party <a href="{% url 'party_details' friends_in_party_news.party.id %}">{{friends_in_party_news.party}}</a> on  {{friends_in_party_news.date_accepted}} </p>
+										{% endfor %}
+										{% endif %}
+										<hr>
+									</div>
+								</div>
+							</div>
+            		</div>
+            	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+
                 <div class="row">
                     <div class="col-lg-6 ">
 
@@ -170,16 +354,10 @@
 						<div class= "col-lg-12">
 							<div class = "panel panel-default">
 	                    		<div class="panel-heading">
-								    <div class= "row">
-		                    	 		<div class = "col-xs-10">
-									    <h3 class="panel-title"> Food to bring </h3>
-									    </div>
-									   <div class="col-xs-2"><span class="badge pull-right">{{food_to_bring_length}}</span> </div>
-
-									</div>
+									<h3 class="panel-title"> Food to bring </h3>
+									<span class="badge pull-right">{{food_to_bring_length}}</span> 
 								</div>
-
-
+							
 
 						  		<div class="panel-body party_panel_body">
 									<div class="container col-md-12 col-lg-12 col-sm-12 ">
@@ -190,7 +368,6 @@
 							        				<th>Party</th>
 							     				</tr>
 							   				</thead>
-
 
 							  				<tbody>
 							    				{% for food in food_to_bring %}
@@ -203,20 +380,12 @@
 							  			</table>
 									</div>
 								</div> 
-
-
-
-
 							</div>
 						</div>
 						</div>
 					</div>
 
-                 </div>
-
-
-              
-
+                 </div> -->
 
             </div>
         </div>

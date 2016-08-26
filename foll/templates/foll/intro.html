@@ -116,7 +116,11 @@
 
 						  		<div class="panel-body party_panel_body">
 									<div class="container col-md-12 col-lg-12 col-sm-12 ">
+									{% if food_to_bring_num == 0 %}
+							  				<p>No food to bring.</p>
+							  		{% else %}
 							 			<table class="table table-hover">
+							 			
 							   				<thead>
 							     				<tr>
 							        				<th>Name</th>
@@ -125,9 +129,7 @@
 							   				</thead>
 
 							  				<tbody>
-							  					{% if food_to_bring_num == 0 %}
-							  					<p>No food to bring.</p>
-							  					{% else %}
+
 
 							    				{% for food in food_to_bring %}
 							     				<tr>
@@ -135,9 +137,10 @@
 							       					<td>{{food.belong_to_party}}</td>
 							     				</tr>
 												{% endfor %}
-												{% endif %}
+												
 							    			</tbody>
 							  			</table>
+							  		{% endif %}
 									</div>
 								</div> 
 							</div>

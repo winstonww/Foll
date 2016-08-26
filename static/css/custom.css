@@ -203,6 +203,7 @@ ul.pagination li:first-child, ul.pagination li:last-child{display: none;}
 .logout_button{
 	margin-bottom: 0 !important;
 	line-height : 2.205 !important;
+	margin-right: 0px !important;
 	color: white;
 }
 .logout_button a {

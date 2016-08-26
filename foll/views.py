@@ -61,6 +61,11 @@ def index(request):
 		new_user.facebook_name = my_info['name']
 		new_user.save()
 
+
+	my_full_name = my_info['name'].split(" ")
+	my_first_name = my_full_name[0]
+
+
 	if (request.method == 'POST') and 'submit_party' in request.POST:
 		party_form = PartyForm(request.POST)
 		if party_form.is_valid():
@@ -128,8 +133,8 @@ def index(request):
 	context = {"party_form": party_form, "party_info": party_info, "party_invitations": party_invitations,
 	"invitation_num": invitation_num, "party_num": party_num, "food_newsfeed": food_newsfeed,
 	"friends_in_party_newsfeed": friends_in_party_newsfeed, "food_newsfeed_num": food_newsfeed_num,
-	"members_newsfeed_num": members_newsfeed_num , "food_to_bring": food_to_bring, "food_to_bring_length": len(food_to_bring)
-	, "my_info": my_info, "my_friends":my_friends}
+	"members_newsfeed_num": members_newsfeed_num , "food_to_bring": food_to_bring, "food_to_bring_num": len(food_to_bring)
+	, "my_info": my_info, "my_friends":my_friends, "my_first_name":my_first_name}
 
 
 	return render(request, 'foll/intro.html', context, context_instance)

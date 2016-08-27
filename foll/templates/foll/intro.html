@@ -162,10 +162,18 @@
 								<div class="panel-body">
 									<div class="text-center", style = "padding-top: 2px;">
 									  <ul class="pagination">
-									    
+									    <li>
+									      <a href="#" aria-label="Previous">
+									        <span aria-hidden="true">&laquo;</span>
+									      </a>
+									    </li>
 									    <li><a id = "food_newsfeed_button"> Food </a></li>
 									    <li><a id = "members_newsfeed_button"> Members</a></li>
-									   
+									    <li>
+									      <a href="#" aria-label="Next">
+									        <span aria-hidden="true">&raquo;</span>
+									      </a>
+									    </li>
 									  </ul>
 									</div>
 									<div id = "food_newsfeed">
@@ -179,7 +187,7 @@
 										{% endif %}
 
 									</div>
-									<div id = "members_newsfeed hidden">
+									<div id = "members_newsfeed" class = "hidden">
 										{% if friends_in_party_newsfeed_num == 0 %}
 											<p> No new members. </p>
 										{% else %}

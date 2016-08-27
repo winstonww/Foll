@@ -7,10 +7,11 @@
 }
 
 .about_info_container {
-    margin: 0 auto 0 auto;
-    height: 1000px;
-    width: 600px;
-    background-color: rgba(229,234,241,0.6);
+    margin: auto;
+    margin-top: 8%;
+    height: 80%;
+    width: 80%;
+    background-color: rgba(251,251,251,0.8);
 
 }
 

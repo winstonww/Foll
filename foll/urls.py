@@ -20,7 +20,7 @@ urlpatterns = [
 		url(r'^signout$', views.signout, name = 'signout'),
 		url(r'^api/process_invitation/(?P<invitation_id>[0-9]+)$', views.process_invitiation, name = 'process_invitation'),
 		url(r'^api/user_in_party/$', views.userInPartyAPI, name = 'userInPartyAPI'),
-
+		url(r'^about$' ,views.about, name = 'about'),
 		# url(r'^api/', include(router.urls, namespace='api')),
 		url(r'^api/process_food_rating/$', views.process_food_rating, name = 'process_food_rating'),
 		url(r'^invitation-form-autocomplete/$', UserAutoComplete.as_view() , name='invitation-form-autocomplete'),

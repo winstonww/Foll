@@ -115,7 +115,7 @@ def index(request):
 		food_newsfeed = food_newsfeed | party_food_newsfeed
 		party_friends_in_party_newsfeed = UserInParty.objects.all().filter(party = party, invitation_accepted = 1).order_by('-date_accepted')
 		friends_in_party_newsfeed = friends_in_party_newsfeed | party_friends_in_party_newsfeed
-		
+
 	food_newsfeed = food_newsfeed[:5]
 	friends_in_party_newsfeed = friends_in_party_newsfeed[:5]
 	food_newsfeed_num = len(food_newsfeed)
@@ -141,7 +141,8 @@ def index(request):
 	return render(request, 'foll/intro.html', context, context_instance)
 
 
-
+def about(request):
+	return render(request, 'foll/about.html')
 
 
 

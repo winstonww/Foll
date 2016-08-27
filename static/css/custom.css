@@ -1,6 +1,8 @@
 .about_wrapper {
   /*webkit makes transition smooth*/
     background: url('about_wallpaper.jpg');
+    width: 100%;
+    height: 100%;
 }
 
 .about_info_container {

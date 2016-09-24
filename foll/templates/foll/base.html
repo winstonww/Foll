@@ -59,7 +59,7 @@ $("#menu-toggle").click( function (e){
 						<!-- Menu Not gonna work without the anchor tag -->
 						<li class = "active"><a href = "{% url 'index' %}"> Home </a> </li>
 						<li> <a href = "{% url 'about' %}"> About </a> </li>
-						<li> <a href = "#"> Help </a> </li>
+						
 					</ul>
 					{% if request.user.is_authenticated %}
 					<ul class = "nav navbar-right logout_button">

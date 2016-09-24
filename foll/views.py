@@ -218,9 +218,9 @@ def party_details(request, party_id):
 	user_in_this_party_ids = []
 	for temp in users_in_this_party:
 		user_in_this_party_ids.append(temp.user.id)
-	user_in_this_party_data = UserData.objects.all.filter(local_django_id__in = user_in_this_party_ids)
+	user_in_this_party_data = UserData.objects.all().filter(local_django_id__in = user_in_this_party_ids)
 
-	
+
 	TopRatedFood.objects.all().filter(top_rated_food_id__in = food_list_ids).delete()
 	top_rated_food_class = TopFood()
 	best_food_ids = top_rated_food_class.top_rated_food_under_price_constraints(party_id)

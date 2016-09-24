@@ -212,10 +212,15 @@ def party_details(request, party_id):
 
 
 	partyfood_list_empty = True if len(partyfood_list) == 0 else False
+
+	# get a list of users in the party
 	users_in_this_party = UserInParty.objects.all().filter(party = temp_party)
+	user_in_this_party_ids = []
+	for temp in users_in_this_party:
+		user_in_this_party_ids.append(temp.user.id)
+	user_in_this_party_data = UserData.objects.all.filter(local_django_id__in = user_in_this_party_ids)
 
-
-
+	
 	TopRatedFood.objects.all().filter(top_rated_food_id__in = food_list_ids).delete()
 	top_rated_food_class = TopFood()
 	best_food_ids = top_rated_food_class.top_rated_food_under_price_constraints(party_id)
@@ -253,7 +258,7 @@ def party_details(request, party_id):
 
 	context = {'food_form': food_form, 'party': this_party, 'partyfood_list' : partyfood_list,
 	'party_food_list_num': len(partyfood_list), 'invitation_form': invitation_form,
-	"partyfood_list_empty": partyfood_list_empty,"users_in_this_party": users_in_this_party,
+	"partyfood_list_empty": partyfood_list_empty,"user_in_this_party_data": user_in_this_party_data,
 	"best_food_list": best_food_list, "best_food_ids": best_food_ids,"invitation_num": invitation_num,
 	"party_num": party_num, "food_newsfeed_num": food_newsfeed_num, "members_newsfeed_num": members_newsfeed_num,
 	"best_food_list_length": best_food_list_length }

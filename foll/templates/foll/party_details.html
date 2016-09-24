@@ -55,9 +55,9 @@
 					<div class="container col-md-12 col-lg-12 col-sm-12 ">
 			 			<table class="table table-hover">
 			  				<tbody>
-			    				{% for users_with_party in users_in_this_party %}
+			    				{% for each_user in user_in_this_party_data %}
 			     				<tr>
-			       					<td> {{users_with_party.user.username}} </td>
+			       					<td> {{each_user.facebook_name}} </td>
 			     				</tr>
 								{% endfor %}
 			    			</tbody>

@@ -1,7 +1,7 @@
 # Foll
 
-This simple webapp built in Django is a voting system allows user to optimize the food they bring to a potluck based on the popularity and the price of each suggested item. 
-Users can log in with Facebook thanks to Django-facebook API. Implemented the classic knapsack algorithm for optimization.
+This simple webapp built in Django is a voting system allows users to optimize the food they bring to a potluck based on the popularity and the price of each suggested item. 
+Users can log in with Facebook thanks to Django-facebook API. Implemented the classic knapsack algorithm as the optimization scheme.
 
 ## Deployment
 

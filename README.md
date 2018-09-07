@@ -5,7 +5,7 @@ Users can log in with Facebook thanks to Django-facebook API. Implemented the cl
 
 ## Deployment
 
-This project is deployed on winstonww.pythonanywhere.com.
+This project is deployed on www.winstonww.pythonanywhere.com
 
 ## Built With
 

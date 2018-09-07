@@ -1,11 +1,13 @@
 # Foll
 
+![alt text](http://individual.utoronto.ca/winston_wong/img/foll_interface.png)
+
 This simple webapp built in Django is a voting system allows users to optimize the food they bring to a potluck based on the popularity and the price of each suggested item. 
 Users can log in with Facebook thanks to Django-facebook API. Implemented the classic knapsack algorithm as the optimization scheme.
 
 ## Deployment
 
-This project is deployed on www.winstonww.pythonanywhere.com
+This project deployed on www.winstonww.pythonanywhere.com
 
 ## Built With
 
